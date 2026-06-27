@@ -319,5 +319,51 @@
     <div class="fbar"><span>© 2026 KS Import · Importação e distribuição de ferramental e fixadores</span><span>LGPD · Privacidade · ksimport.com.br</span></div>
   </div>
 </footer>
+
+<!-- ================= ASSISTENTE KS · IA de atendimento (Groq) ================= -->
+<button id="ksaiFab" onclick="ksaiToggle()" aria-label="Falar com o Assistente KS"><span class="kx"></span> Assistente KS</button>
+<div id="ksaiPanel">
+  <div class="ksai-head"><span class="kx"></span> <b>Assistente KS</b><span class="ksai-x" onclick="ksaiToggle()">×</span></div>
+  <div id="ksaiMsgs"></div>
+  <form class="ksai-form" onsubmit="return ksaiSubmit(event)">
+    <input id="ksaiIn" placeholder="Normas, produtos, cotação…" autocomplete="off">
+    <button type="submit" aria-label="Enviar">➤</button>
+  </form>
+</div>
+<style>
+  #ksaiFab{position:fixed;right:20px;bottom:20px;z-index:90;display:inline-flex;align-items:center;gap:9px;background:var(--grad,#1C6FB5);color:#fff;border:none;border-radius:999px;padding:13px 20px;font-family:Inter,sans-serif;font-weight:600;font-size:15px;cursor:pointer;box-shadow:0 10px 30px rgba(14,63,115,.4)}
+  #ksaiFab .kx{width:15px;height:17px;background:#fff;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+  #ksaiPanel{position:fixed;right:20px;bottom:84px;z-index:91;width:360px;max-width:calc(100vw - 32px);height:520px;max-height:calc(100vh - 120px);background:#fff;border:1px solid #D7DCE2;border-radius:16px;box-shadow:0 24px 60px rgba(21,24,29,.28);display:none;flex-direction:column;overflow:hidden}
+  #ksaiPanel.open{display:flex}
+  .ksai-head{display:flex;align-items:center;gap:9px;background:#15181D;color:#fff;padding:14px 16px;font-family:Saira,sans-serif;font-size:16px}
+  .ksai-head .kx{width:14px;height:16px;background:var(--grad,#2BA8E0);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+  .ksai-head .ksai-x{margin-left:auto;cursor:pointer;font-size:22px;line-height:1}
+  #ksaiMsgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;background:#F8FAFC}
+  .ksai-b{max-width:84%;padding:10px 13px;border-radius:12px;font-size:14px;line-height:1.5;white-space:pre-wrap}
+  .ksai-ai{background:#fff;border:1px solid #E1E7EE;align-self:flex-start;border-bottom-left-radius:3px;color:#2B2F36}
+  .ksai-me{background:#1C6FB5;color:#fff;align-self:flex-end;border-bottom-right-radius:3px}
+  .ksai-form{display:flex;gap:8px;padding:12px;border-top:1px solid #E1E7EE;background:#fff}
+  .ksai-form input{flex:1;border:1px solid #D7DCE2;border-radius:9px;padding:11px 13px;font-family:Inter,sans-serif;font-size:14px}
+  .ksai-form button{background:#1C6FB5;color:#fff;border:none;border-radius:9px;width:46px;font-size:16px;cursor:pointer}
+  @media(max-width:560px){#ksaiFab span:not(.kx){display:none}#ksaiFab{padding:14px}}
+</style>
+<script>
+  const KSAI_URL="https://vbolwaskiquchzbbuzol.supabase.co/functions/v1/ks-site-ai";
+  const KSAI_KEY="sb_publishable_L1sdAGREymDnp5-jJHy2kg_fTCSC_rn";
+  let ksaiMsgs=[], ksaiInit=false;
+  function ksaiToggle(){
+    const p=document.getElementById("ksaiPanel"); p.classList.toggle("open");
+    if(p.classList.contains("open")&&!ksaiInit){ksaiInit=true;ksaiPush("ai","Olá! Sou o Assistente KS. Ajudo com ferramental (punções, matrizes, pentes, machos) e fixadores (parafusos, porcas, rebites, arruelas) — normas KS/ANSI/DIN/JIS/ISO. O que você procura?");document.getElementById("ksaiIn").focus();}
+  }
+  function ksaiPush(who,txt){const d=document.createElement("div");d.className="ksai-b "+(who==="me"?"ksai-me":"ksai-ai");d.textContent=txt;const m=document.getElementById("ksaiMsgs");m.appendChild(d);m.scrollTop=m.scrollHeight;return d;}
+  async function ksaiSubmit(e){
+    e.preventDefault();const inp=document.getElementById("ksaiIn");const t=inp.value.trim();if(!t)return false;
+    inp.value="";ksaiPush("me",t);ksaiMsgs.push({role:"user",content:t});const wait=ksaiPush("ai","…");
+    try{const r=await fetch(KSAI_URL,{method:"POST",headers:{"Content-Type":"application/json","apikey":KSAI_KEY,"Authorization":"Bearer "+KSAI_KEY},body:JSON.stringify({message:t,messages:ksaiMsgs.slice(0,-1)})});
+      const j=await r.json();wait.textContent=j.reply||"Não consegui responder agora. Use o formulário de cotação, por favor.";ksaiMsgs.push({role:"assistant",content:j.reply||""});}
+    catch(err){wait.textContent="Falha de conexão. Tente novamente ou use o formulário de cotação.";}
+    return false;
+  }
+</script>
 </body>
 </html>
