@@ -287,12 +287,14 @@
       <span class="eyebrow">Contato</span>
       <h2 style="font-size:clamp(28px,3.6vw,40px);font-weight:600;margin:14px 0 10px">Fale com o time técnico</h2>
       <p style="color:#5b6470;font-size:17px;margin-bottom:26px">Cole sua lista de itens (norma, medida, quantidade) ou anexe o desenho — retornamos com a cotação.</p>
-      <form class="form" onsubmit="event.preventDefault();this.querySelector('button').textContent='Enviado ✓ (prévia)';">
-        <div class="f"><label>Empresa / CNPJ</label><input placeholder="Razão social ou CNPJ"></div>
-        <div class="f"><label>Linha de interesse</label><input placeholder="Ferramental, Fixadores, ou ambos"></div>
-        <div class="f"><label>Itens</label><textarea placeholder="Ex.: Punção cabeça panela ISO 7045 M5 — 20 un&#10;Parafuso sext. DIN 933 M8x30 cl.8.8 — 5.000 un&#10;Pente laminar DIN 7970 CR — 4 jogos"></textarea></div>
-        <div class="f"><label>WhatsApp para retorno</label><input placeholder="(00) 00000-0000"></div>
+      <form class="form" id="ksLeadForm" onsubmit="return ksLeadSubmit(event)">
+        <div class="f"><label>Empresa / CNPJ</label><input id="lkEmpresa" placeholder="Razão social ou CNPJ"></div>
+        <div class="f"><label>Linha de interesse</label><select id="lkLinha"><option value="">Ferramental, Fixadores, ou ambos</option><option value="ferramental">Ferramental</option><option value="fixadores">Fixadores</option></select></div>
+        <div class="f"><label>Itens</label><textarea id="lkItens" placeholder="Ex.: Punção cabeça panela ISO 7045 M5 — 20 un&#10;Parafuso sext. DIN 933 M8x30 cl.8.8 — 5.000 un&#10;Pente laminar DIN 7970 CR — 4 jogos"></textarea></div>
+        <div class="f"><label>WhatsApp para retorno</label><input id="lkFone" placeholder="(00) 00000-0000"></div>
+        <div class="f" style="position:absolute;left:-9999px" aria-hidden="true"><label>Não preencha</label><input id="lkHp" tabindex="-1" autocomplete="off"></div>
         <button class="btn btn-p" style="width:100%;justify-content:center">Enviar para cotação</button>
+        <div id="lkMsg" style="margin-top:10px;font-size:14px"></div>
       </form>
     </div>
     <div class="cinfo" style="align-self:center">
@@ -362,6 +364,21 @@
     try{const r=await fetch(KSAI_URL,{method:"POST",headers:{"Content-Type":"application/json","apikey":KSAI_KEY,"Authorization":"Bearer "+KSAI_KEY},body:JSON.stringify({message:t,messages:ksaiMsgs.slice(0,-1)})});
       const j=await r.json();wait.textContent=j.reply||"Não consegui responder agora. Use o formulário de cotação, por favor.";ksaiMsgs.push({role:"assistant",content:j.reply||""});}
     catch(err){wait.textContent="Falha de conexão. Tente novamente ou use o formulário de cotação.";}
+    return false;
+  }
+  const LEAD_URL="https://vbolwaskiquchzbbuzol.supabase.co/functions/v1/ks-site-lead";
+  async function ksLeadSubmit(e){
+    e.preventDefault();
+    const msg=document.getElementById("lkMsg"); const btn=e.target.querySelector("button");
+    const payload={ empresa:document.getElementById("lkEmpresa").value.trim(), linha:document.getElementById("lkLinha").value, itens:document.getElementById("lkItens").value.trim(), telefone:document.getElementById("lkFone").value.trim(), empresa_site:document.getElementById("lkHp").value };
+    if(!payload.empresa && !payload.telefone){ msg.style.color="#c0392b"; msg.textContent="Informe ao menos a empresa e um WhatsApp para retorno."; return false; }
+    btn.disabled=true; btn.textContent="Enviando…"; msg.textContent="";
+    try{
+      const r=await fetch(LEAD_URL,{method:"POST",headers:{"Content-Type":"application/json","apikey":KSAI_KEY},body:JSON.stringify(payload)});
+      const j=await r.json();
+      if(j.ok){ btn.textContent="Enviado ✓"; msg.style.color="#1E9E62"; msg.textContent="Recebemos sua solicitação — o time técnico da KS retorna em breve com a cotação."; e.target.reset(); }
+      else { btn.disabled=false; btn.textContent="Enviar para cotação"; msg.style.color="#c0392b"; msg.textContent=j.error||"Não foi possível enviar. Tente novamente."; }
+    }catch(err){ btn.disabled=false; btn.textContent="Enviar para cotação"; msg.style.color="#c0392b"; msg.textContent="Falha de conexão. Tente novamente."; }
     return false;
   }
 </script>
