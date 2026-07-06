@@ -40,6 +40,9 @@
   .logo .mark::after{content:"";width:15px;height:17px;background:var(--grad);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
   .logo .ks{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
   .logo .im{color:var(--grafite);font-weight:600}
+  .logo .logo-img{height:40px;width:auto;display:block}
+  .logo-chip{display:inline-flex;align-items:center;background:#fff;border-radius:10px;padding:9px 13px}
+  .logo-chip .logo-img{height:30px}
   nav.links{display:flex;align-items:center;gap:34px}
   nav.links a{font-size:15px;font-weight:500;color:#4a525b;position:relative;padding:4px 0}
   nav.links a:hover{color:var(--grafite)}
@@ -164,7 +167,7 @@
 
 <header>
   <div class="c nav">
-    <a href="#topo" class="logo"><span class="mark"></span><span class="ks">KS</span>&nbsp;<span class="im">IMPORT</span></a>
+    <a href="#topo" class="logo" aria-label="KS Import"><img class="logo-img" src="/logo-ks.png" alt="KS Import"></a>
     <nav class="links">
       <a href="#produtos">Produtos</a>
       <a href="#quem">Quem somos</a>
@@ -312,7 +315,7 @@
   <div class="c">
     <div class="fgrid">
       <div>
-        <div class="logo" style="color:#fff;margin-bottom:14px"><span class="mark"></span><span style="color:var(--ciano)">KS</span>&nbsp;<span style="color:#fff;font-weight:600">IMPORT</span></div>
+        <div class="logo-chip" style="margin-bottom:14px"><img class="logo-img" src="/logo-ks.png" alt="KS Import"></div>
         <p style="font-size:14px;max-width:34ch">Ferramental e fixadores para a indústria. Toda a cadeia da fixação — da ferramenta que fabrica ao fixador que monta.</p>
       </div>
       <div><h5>Ferramental</h5><a href="#produtos">Punções</a><a href="#produtos">Pentes de laminar roscas</a><a href="#produtos">Matrizes e recorte</a><a href="#produtos">Machos de porca</a></div>
