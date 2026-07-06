@@ -49,7 +49,15 @@
   nav.links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--grad);transition:.25s}
   nav.links a:hover::after{width:100%}
   .nav .btn{padding:10px 20px}
-  @media(max-width:880px){nav.links a:not(.btn){display:none}}
+  .has-dd{position:relative}
+  .has-dd>.ddt{cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+  .dd{position:absolute;top:calc(100% + 6px);left:0;background:#fff;border:1px solid var(--aco);border-radius:10px;box-shadow:0 16px 40px rgba(21,24,29,.14);min-width:230px;padding:8px;display:none;flex-direction:column;gap:2px}
+  .has-dd:hover .dd{display:flex}
+  .dd a{padding:10px 12px;border-radius:7px;font-size:14px;color:#4a525b}
+  .dd a::after{display:none}
+  .dd a:hover{background:var(--nevoa);color:var(--grafite)}
+  .dd a b{color:var(--grafite);font-weight:600}
+  @media(max-width:880px){nav.links a:not(.btn),nav.links .has-dd{display:none}}
 
   /* HERO */
   .hero{position:relative;background:var(--g900);color:#fff;overflow:hidden}
@@ -169,7 +177,14 @@
   <div class="c nav">
     <a href="#topo" class="logo" aria-label="KS Import"><img class="logo-img" src="/logo-ks.png" alt="KS Import"></a>
     <nav class="links">
-      <a href="#produtos">Produtos</a>
+      <span class="has-dd">
+        <a class="ddt" href="#produtos">Produtos ▾</a>
+        <span class="dd">
+          <a href="#produtos"><b>Ver todas as linhas</b></a>
+          <a href="/cabecas-de-parafuso">Cabeças de Parafuso</a>
+          <a href="/chaves-de-fenda">Chaves de Fenda</a>
+        </span>
+      </span>
       <a href="#quem">Quem somos</a>
       <a href="#porque">Diferenciais</a>
       <a href="#contato">Contato</a>
@@ -318,7 +333,7 @@
         <div class="logo-chip" style="margin-bottom:14px"><img class="logo-img" src="/logo-ks.png" alt="KS Import"></div>
         <p style="font-size:14px;max-width:34ch">Ferramental e fixadores para a indústria. Toda a cadeia da fixação — da ferramenta que fabrica ao fixador que monta.</p>
       </div>
-      <div><h5>Ferramental</h5><a href="#produtos">Punções</a><a href="#produtos">Pentes de laminar roscas</a><a href="#produtos">Matrizes e recorte</a><a href="#produtos">Machos de porca</a></div>
+      <div><h5>Ferramental</h5><a href="#produtos">Punções</a><a href="#produtos">Pentes de laminar roscas</a><a href="#produtos">Matrizes e recorte</a><a href="/cabecas-de-parafuso">Cabeças de Parafuso</a><a href="/chaves-de-fenda">Chaves de Fenda</a></div>
       <div><h5>Fixadores</h5><a href="#produtos">Parafusos</a><a href="#produtos">Porcas</a><a href="#produtos">Rebites</a><a href="#produtos">Arruelas</a></div>
       <div><h5>Comercial</h5><a href="#contato">Solicitar cotação</a><a href="#contato">WhatsApp</a><a href="#contato">Seja cliente</a></div>
     </div>
