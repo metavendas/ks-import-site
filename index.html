@@ -92,6 +92,7 @@
   .pcard .tile::before{content:"";position:absolute;inset:0;opacity:.5;background:repeating-linear-gradient(125deg,rgba(255,255,255,.5) 0 2px,transparent 2px 9px)}
   .pcard .tile .hx{width:54px;height:62px;background:var(--metal);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);position:relative;z-index:2;box-shadow:0 12px 26px rgba(21,24,29,.3)}
   .pcard .tile .hx::after{content:"";position:absolute;inset:0;margin:auto;width:22px;height:25px;background:var(--g900);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);top:50%;left:50%;transform:translate(-50%,-50%)}
+  .pcard .tile img.pfoto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:3}
   .pcard .bd{padding:22px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
   .pcard .bd .num{font-family:JetBrains Mono,monospace;font-size:12px;color:var(--azul)}
   .pcard h3{font-size:21px;font-weight:600}
@@ -216,12 +217,12 @@
         <span class="who">para <b>fábricas de fixadores</b> · estamparia e conformação a frio</span>
       </div>
       <div class="grid">
-        <a class="pcard" href="#contato"><div class="tile"><div class="hx"></div></div><div class="bd"><span class="num">01 · Punções</span><h3>Punções</h3><p>Punções de estampar cabeças e fendas nos padrões KS, ANSI, DIN, JIS e ISO — incluindo micro parafusos, one way e six-lobe.</p><span class="more">Ver linha →</span></div></a>
-        <a class="pcard" href="#contato"><div class="tile"><div class="hx"></div></div><div class="bd"><span class="num">02 · Roscas</span><h3>Pentes de Laminar Roscas</h3><p>Pentes ChipBoard e auto-atarrachante (DIN 7970), tabelas e matrizes trilobulares para laminação de roscas.</p><span class="more">Ver linha →</span></div></a>
-        <a class="pcard" href="#contato"><div class="tile"><div class="hx"></div></div><div class="bd"><span class="num">03 · Recorte</span><h3>Matrizes de Recorte</h3><p>Matrizes recortadoras de sextavados para acabamento preciso de cabeças e perfis.</p><span class="more">Ver linha →</span></div></a>
-        <a class="pcard" href="#contato"><div class="tile"><div class="hx"></div></div><div class="bd"><span class="num">04 · Roscas internas</span><h3>Machos de Porca</h3><p>Machos cortadores e laminadores para fabricação de porcas e roscas internas, alta durabilidade.</p><span class="more">Ver linha →</span></div></a>
-        <a class="pcard" href="#contato"><div class="tile"><div class="hx"></div></div><div class="bd"><span class="num">05 · Conformação</span><h3>Pinos e Buchas</h3><p>Pinos e buchas para ferramentas de conformação, sextavados e cilíndricos, sob norma e medida.</p><span class="more">Ver linha →</span></div></a>
-        <a class="pcard" href="#contato"><div class="tile"><div class="hx"></div></div><div class="bd"><span class="num">06 · Matrizaria</span><h3>Ferramentas FA-5 a FA-20</h3><p>Matrizes e conjuntos de ferramentas de dupla ação para máquinas formadoras FA-5 a FA-20.</p><span class="more">Ver linha →</span></div></a>
+        <a class="pcard" href="#contato"><div class="tile" data-produto="38d92831-971b-4d63-ba6a-13d5d12315b6"><div class="hx"></div></div><div class="bd"><span class="num">01 · Punções</span><h3>Punções</h3><p>Punções de estampar cabeças e fendas nos padrões KS, ANSI, DIN, JIS e ISO — incluindo micro parafusos, one way e six-lobe.</p><span class="more">Ver linha →</span></div></a>
+        <a class="pcard" href="#contato"><div class="tile" data-produto="8bf91a68-7ebe-4faa-b426-44feb38e4ea7"><div class="hx"></div></div><div class="bd"><span class="num">02 · Roscas</span><h3>Pentes de Laminar Roscas</h3><p>Pentes ChipBoard e auto-atarrachante (DIN 7970), tabelas e matrizes trilobulares para laminação de roscas.</p><span class="more">Ver linha →</span></div></a>
+        <a class="pcard" href="#contato"><div class="tile" data-produto="0b8ee46f-dbcf-4388-b2ed-36d0b1405f3f"><div class="hx"></div></div><div class="bd"><span class="num">03 · Recorte</span><h3>Matrizes de Recorte</h3><p>Matrizes recortadoras de sextavados para acabamento preciso de cabeças e perfis.</p><span class="more">Ver linha →</span></div></a>
+        <a class="pcard" href="#contato"><div class="tile" data-produto="893156c9-fb21-4575-8a53-c294b3359cdb"><div class="hx"></div></div><div class="bd"><span class="num">04 · Roscas internas</span><h3>Machos de Porca</h3><p>Machos cortadores e laminadores para fabricação de porcas e roscas internas, alta durabilidade.</p><span class="more">Ver linha →</span></div></a>
+        <a class="pcard" href="#contato"><div class="tile" data-produto="5905e62f-9d3a-4f01-aa01-85def16b720e"><div class="hx"></div></div><div class="bd"><span class="num">05 · Conformação</span><h3>Pinos e Buchas</h3><p>Pinos e buchas para ferramentas de conformação, sextavados e cilíndricos, sob norma e medida.</p><span class="more">Ver linha →</span></div></a>
+        <a class="pcard" href="#contato"><div class="tile" data-produto="6bdc283c-61b8-454c-861b-4d73e55f601d"><div class="hx"></div></div><div class="bd"><span class="num">06 · Matrizaria</span><h3>Ferramentas FA-5 a FA-20</h3><p>Matrizes e conjuntos de ferramentas de dupla ação para máquinas formadoras FA-5 a FA-20.</p><span class="more">Ver linha →</span></div></a>
       </div>
     </div>
 
@@ -350,6 +351,26 @@
   @media(max-width:560px){#ksaiFab span:not(.kx){display:none}#ksaiFab{padding:14px}}
 </style>
 <script>
+  /* Fotos do catálogo — puxa a capa de cada produto do Supabase (upload feito no CRM) */
+  (async function(){
+    const tiles=[...document.querySelectorAll('.pcard .tile[data-produto]')];
+    if(!tiles.length) return;
+    const SBURL="https://vbolwaskiquchzbbuzol.supabase.co", SBKEY="sb_publishable_L1sdAGREymDnp5-jJHy2kg_fTCSC_rn";
+    try{
+      const r=await fetch(SBURL+"/rest/v1/produto_fotos?select=produto_id,url,principal,ordem&order=ordem.asc",{headers:{apikey:SBKEY,Authorization:"Bearer "+SBKEY}});
+      if(!r.ok) return;
+      const rows=await r.json(), byProd={};
+      rows.forEach(f=>{ (byProd[f.produto_id]=byProd[f.produto_id]||[]).push(f); });
+      tiles.forEach(t=>{
+        const list=byProd[t.getAttribute('data-produto')]; if(!list||!list.length) return;
+        const cap=list.find(f=>f.principal)||list[0];
+        const img=new Image(); img.className="pfoto"; img.alt=""; img.loading="lazy";
+        img.onload=()=>{ const hx=t.querySelector('.hx'); if(hx) hx.style.display='none'; };
+        img.src=cap.url; t.appendChild(img);
+      });
+    }catch(e){}
+  })();
+
   const KSAI_URL="https://vbolwaskiquchzbbuzol.supabase.co/functions/v1/ks-site-ai";
   const KSAI_KEY="sb_publishable_L1sdAGREymDnp5-jJHy2kg_fTCSC_rn";
   let ksaiMsgs=[], ksaiInit=false;
