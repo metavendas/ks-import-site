@@ -169,18 +169,6 @@
   footer.ft a{display:block;padding:6px 0;font-size:14px}
   footer.ft a:hover{color:var(--ciano)}
   .fbar{border-top:1px solid rgba(255,255,255,.08);margin-top:40px;padding-top:22px;font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-
-  /* CATÁLOGO — barra de busca/filtro */
-  .catbar{display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center;justify-content:space-between;margin:4px 0 26px}
-  .catsearch{flex:1;min-width:240px}
-  .catsearch input{width:100%;max-width:420px;padding:12px 16px;border:1px solid var(--aco);border-radius:999px;font-family:Inter;font-size:14.5px;background:#fff}
-  .catsearch input:focus{outline:none;border-color:var(--azul);box-shadow:0 0 0 3px rgba(28,111,181,.12)}
-  .catfilters{display:flex;flex-wrap:wrap;gap:8px}
-  .fbtn{border:1px solid var(--aco);background:#fff;color:#4a525b;border-radius:999px;padding:8px 15px;font-family:Inter;font-size:13.5px;font-weight:500;cursor:pointer;transition:.18s}
-  .fbtn:hover{border-color:var(--azul);color:var(--grafite)}
-  .fbtn.active{background:var(--grad);color:#fff;border-color:transparent}
-  .pcard .tile img.pfoto{padding:14px;object-fit:contain!important;background:#fff}
-
 </style>
 </head>
 <body>
@@ -193,12 +181,6 @@
         <a class="ddt" href="#produtos">Produtos ▾</a>
         <span class="dd">
           <a href="#produtos"><b>Ver todas as linhas</b></a>
-          <a href="/?g=puncoes#catalogo">Punções</a>
-          <a href="/?g=matrizes#catalogo">Matrizes</a>
-          <a href="/?g=pinos#catalogo">Pinos e Núcleos</a>
-          <a href="/?g=machos#catalogo">Machos de Rosca</a>
-          <a href="/?g=roscas#catalogo">Laminação de Roscas</a>
-          <a href="/?g=comple#catalogo">Conjuntos e Periféricos</a>
           <a href="/cabecas-de-parafuso">Cabeças de Parafuso</a>
           <a href="/chaves-de-fenda">Chaves de Fenda</a>
         </span>
@@ -246,53 +228,20 @@
       <p>De um lado, o ferramental que fabrica o fixador. Do outro, o fixador que a indústria monta. A KS atende os dois elos — com reposição recorrente, itens especiais sob desenho e prazo confiável.</p>
     </div>
 
-    <!-- LINHA 1 · FERRAMENTAL (catálogo com fotos) -->
-    <div class="lineband" id="catalogo">
+    <!-- LINHA 1 · FERRAMENTAL -->
+    <div class="lineband">
       <div class="lhead">
-        <div class="lt"><span class="hx"></span><h3>Linha Ferramental — Catálogo</h3></div>
+        <div class="lt"><span class="hx"></span><h3>Linha Ferramental</h3></div>
         <span class="who">para <b>fábricas de fixadores</b> · estamparia e conformação a frio</span>
       </div>
-      <div class="catbar">
-        <div class="catsearch">
-          <input id="catq" type="search" placeholder="Buscar produto (ex.: matriz, punção, pente, macho…)" aria-label="Buscar produto">
-        </div>
-        <div class="catfilters">
-          <button type="button" class="fbtn active" data-f="all">Todos</button>
-          <button type="button" class="fbtn" data-f="puncoes">Punções</button><button type="button" class="fbtn" data-f="matrizes">Matrizes</button><button type="button" class="fbtn" data-f="pinos">Pinos e Núcleos</button><button type="button" class="fbtn" data-f="machos">Machos de Rosca</button><button type="button" class="fbtn" data-f="roscas">Laminação de Roscas</button><button type="button" class="fbtn" data-f="comple">Conjuntos e Periféricos</button>
-        </div>
+      <div class="grid">
+        <a class="pcard" href="#contato"><div class="tile" data-produto="38d92831-971b-4d63-ba6a-13d5d12315b6"><div class="hx"></div></div><div class="bd"><span class="num">01 · Punções</span><h3>Punções</h3><p>Punções de estampar cabeças e fendas nos padrões KS, ANSI, DIN, JIS e ISO — incluindo micro parafusos, one way e six-lobe.</p><span class="more">Ver linha →</span></div></a>
+        <a class="pcard" href="#contato"><div class="tile" data-produto="8bf91a68-7ebe-4faa-b426-44feb38e4ea7"><div class="hx"></div></div><div class="bd"><span class="num">02 · Roscas</span><h3>Pentes de Laminar Roscas</h3><p>Pentes ChipBoard e auto-atarrachante (DIN 7970), tabelas e matrizes trilobulares para laminação de roscas.</p><span class="more">Ver linha →</span></div></a>
+        <a class="pcard" href="#contato"><div class="tile" data-produto="0b8ee46f-dbcf-4388-b2ed-36d0b1405f3f"><div class="hx"></div></div><div class="bd"><span class="num">03 · Recorte</span><h3>Matrizes de Recorte</h3><p>Matrizes recortadoras de sextavados para acabamento preciso de cabeças e perfis.</p><span class="more">Ver linha →</span></div></a>
+        <a class="pcard" href="#contato"><div class="tile" data-produto="893156c9-fb21-4575-8a53-c294b3359cdb"><div class="hx"></div></div><div class="bd"><span class="num">04 · Roscas internas</span><h3>Machos de Porca</h3><p>Machos cortadores e laminadores para fabricação de porcas e roscas internas, alta durabilidade.</p><span class="more">Ver linha →</span></div></a>
+        <a class="pcard" href="#contato"><div class="tile" data-produto="5905e62f-9d3a-4f01-aa01-85def16b720e"><div class="hx"></div></div><div class="bd"><span class="num">05 · Conformação</span><h3>Pinos e Buchas</h3><p>Pinos e buchas para ferramentas de conformação, sextavados e cilíndricos, sob norma e medida.</p><span class="more">Ver linha →</span></div></a>
+        <a class="pcard" href="#contato"><div class="tile" data-produto="6bdc283c-61b8-454c-861b-4d73e55f601d"><div class="hx"></div></div><div class="bd"><span class="num">06 · Matrizaria</span><h3>Ferramentas FA-5 a FA-20</h3><p>Matrizes e conjuntos de ferramentas de dupla ação para máquinas formadoras FA-5 a FA-20.</p><span class="more">Ver linha →</span></div></a>
       </div>
-      <div class="grid" id="catgrid">
-        <a class="pcard" href="/puncao-1-estagio" data-grupo="puncoes" data-nome="punção 1º estágio"><div class="tile"><img class="pfoto" src="/img/produtos/puncao-1-estagio.jpg" alt="Punção 1º Estágio — KS Import" loading="lazy"></div><div class="bd"><span class="num">Punções</span><h3>Punção 1º Estágio</h3><p>Punção da primeira estação da formadora: faz o pré-recalque e prepara o volume de material para as estações seguintes.</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/capa-2a-puncao" data-grupo="puncoes" data-nome="capa da 2ª punção"><div class="tile"><img class="pfoto" src="/img/produtos/capa-2a-puncao.jpg" alt="Capa da 2ª Punção — KS Import" loading="lazy"></div><div class="bd"><span class="num">Punções</span><h3>Capa da 2ª Punção</h3><p>Capa (case) que aloja e reforça o punção da segunda estação, dando o acabamento final da cabeça.</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/puncao-com-gravura" data-grupo="puncoes" data-nome="punção com gravura"><div class="tile"><img class="pfoto" src="/img/produtos/puncao-com-gravura.jpg" alt="Punção com Gravura — KS Import" loading="lazy"></div><div class="bd"><span class="num">Punções</span><h3>Punção com Gravura</h3><p>Punção que estampa a marcação da cabeça — logotipo, classe de resistência e identificação do fabricante — no mesmo golpe do recalque.</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/puncao-sextavado" data-grupo="puncoes" data-nome="punção sextavado"><div class="tile"><img class="pfoto" src="/img/produtos/puncao-sextavado.jpg" alt="Punção Sextavado — KS Import" loading="lazy"></div><div class="bd"><span class="num">Punções</span><h3>Punção Sextavado</h3><p>Punção que forma o sextavado interno (encaixe Allen) na cabeça de parafusos de acionamento por chave hexagonal.</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/puncoes-fabricacao-parafusos" data-grupo="puncoes" data-nome="punções para fabricação de parafusos"><div class="tile"><img class="pfoto" src="/img/produtos/puncoes-fabricacao-parafusos.jpg" alt="Punções para Fabricação de Parafusos — KS Import" loading="lazy"></div><div class="bd"><span class="num">Punções</span><h3>Punções para Fabricação de Parafusos</h3><p>Linha completa de punções de estampar cabeças e fendas — KS, ANSI, DIN, JIS e ISO, incluindo micro parafusos, one-way e six-lobe.</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/matriz-cilindrica" data-grupo="matrizes" data-nome="matriz cilíndrica"><div class="tile"><img class="pfoto" src="/img/produtos/matriz-cilindrica.jpg" alt="Matriz Cilíndrica — KS Import" loading="lazy"></div><div class="bd"><span class="num">Matrizes</span><h3>Matriz Cilíndrica</h3><p>Matriz de furo cilíndrico que confina o corpo do fixador durante o recalque, garantindo diâmetro e retidão.</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/matriz-cilindrica-estriada" data-grupo="matrizes" data-nome="matriz cilíndrica estriada"><div class="tile"><img class="pfoto" src="/img/produtos/matriz-cilindrica-estriada.jpg" alt="Matriz Cilíndrica Estriada — KS Import" loading="lazy"></div><div class="bd"><span class="num">Matrizes</span><h3>Matriz Cilíndrica Estriada</h3><p>Matriz cilíndrica com estrias internas que formam ranhuras/serrilha no corpo ou sob a cabeça do fixador.</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/matriz-serrilhado" data-grupo="matrizes" data-nome="matriz com serrilhado"><div class="tile"><img class="pfoto" src="/img/produtos/matriz-serrilhado.jpg" alt="Matriz com Serrilhado — KS Import" loading="lazy"></div><div class="bd"><span class="num">Matrizes</span><h3>Matriz com Serrilhado</h3><p>Matriz que forma serrilhado sob a cabeça — dentes que travam o fixador contra a superfície e evitam o afrouxamento.</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/matriz-recorte" data-grupo="matrizes" data-nome="matriz de recorte"><div class="tile"><img class="pfoto" src="/img/produtos/matriz-recorte.jpg" alt="Matriz de Recorte — KS Import" loading="lazy"></div><div class="bd"><span class="num">Matrizes</span><h3>Matriz de Recorte</h3><p>Matriz recortadora (trimming) que apara a cabeça pré-formada no perfil sextavado ou definido, dando o acabamento final.</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/matriz-recorte-quadrado" data-grupo="matrizes" data-nome="matriz de recorte quadrado"><div class="tile"><img class="pfoto" src="/img/produtos/matriz-recorte-quadrado.jpg" alt="Matriz de Recorte Quadrado — KS Import" loading="lazy"></div><div class="bd"><span class="num">Matrizes</span><h3>Matriz de Recorte Quadrado</h3><p>Matriz de recorte com perfil quadrado, para cabeças e pescoços quadrados de parafusos e elementos especiais.</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/matriz-recorte-retangular" data-grupo="matrizes" data-nome="matriz de recorte retangular"><div class="tile"><img class="pfoto" src="/img/produtos/matriz-recorte-retangular.jpg" alt="Matriz de Recorte Retangular — KS Import" loading="lazy"></div><div class="bd"><span class="num">Matrizes</span><h3>Matriz de Recorte Retangular</h3><p>Matriz de recorte de perfil retangular para cabeças e ressaltos alongados de fixadores e componentes especiais.</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/matriz-ponta-broca" data-grupo="matrizes" data-nome="matriz ponta broca"><div class="tile"><img class="pfoto" src="/img/produtos/matriz-ponta-broca.jpg" alt="Matriz Ponta Broca — KS Import" loading="lazy"></div><div class="bd"><span class="num">Matrizes</span><h3>Matriz Ponta Broca</h3><p>Ferramental que forma a ponta broca (autoperfurante) dos parafusos tipo self-drilling, para fixação sem pré-furo.</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/matriz-segmentada" data-grupo="matrizes" data-nome="matriz segmentada"><div class="tile"><img class="pfoto" src="/img/produtos/matriz-segmentada.jpg" alt="Matriz Segmentada — KS Import" loading="lazy"></div><div class="bd"><span class="num">Matrizes</span><h3>Matriz Segmentada</h3><p>Matriz construída em segmentos (partida) para formar perfis complexos e facilitar a extração de peças com detalhes internos.</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/matriz-sextavada" data-grupo="matrizes" data-nome="matriz sextavada"><div class="tile"><img class="pfoto" src="/img/produtos/matriz-sextavada.jpg" alt="Matriz Sextavada — KS Import" loading="lazy"></div><div class="bd"><span class="num">Matrizes</span><h3>Matriz Sextavada</h3><p>Matriz de cavidade sextavada que forma diretamente a cabeça de seis faces no recalque, com faces e cantos de precisão.</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/matriz-trava" data-grupo="matrizes" data-nome="matriz trava"><div class="tile"><img class="pfoto" src="/img/produtos/matriz-trava.png" alt="Matriz Trava — KS Import" loading="lazy"></div><div class="bd"><span class="num">Matrizes</span><h3>Matriz Trava</h3><p>Elemento de travamento/fixação da matriz no porta-matriz da formadora, garantindo posição e resistência ao golpe.</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/pino-dodecagonal" data-grupo="pinos" data-nome="pino dodecagonal"><div class="tile"><img class="pfoto" src="/img/produtos/pino-dodecagonal.jpg" alt="Pino Dodecagonal — KS Import" loading="lazy"></div><div class="bd"><span class="num">Pinos e Núcleos</span><h3>Pino Dodecagonal</h3><p>Pino/mandril de perfil dodecagonal (12 pontas) para formar encaixes multiponto de alto torque na cabeça do fixador.</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/pino-extrusao" data-grupo="pinos" data-nome="pino de extrusão"><div class="tile"><img class="pfoto" src="/img/produtos/pino-extrusao.jpg" alt="Pino de Extrusão — KS Import" loading="lazy"></div><div class="bd"><span class="num">Pinos e Núcleos</span><h3>Pino de Extrusão</h3><p>Pino que força o material através da matriz na extrusão a frio, reduzindo o diâmetro e alongando o corpo da peça.</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/pino-quadrado" data-grupo="pinos" data-nome="pino quadrado"><div class="tile"><img class="pfoto" src="/img/produtos/pino-quadrado.jpg" alt="Pino Quadrado — KS Import" loading="lazy"></div><div class="bd"><span class="num">Pinos e Núcleos</span><h3>Pino Quadrado</h3><p>Pino de seção quadrada para formar alojamentos/encaixes quadrados ou atuar como extrator anti-giro.</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/pinos-sextavado" data-grupo="pinos" data-nome="pinos sextavado"><div class="tile"><img class="pfoto" src="/img/produtos/pinos-sextavado.jpg" alt="Pinos Sextavado — KS Import" loading="lazy"></div><div class="bd"><span class="num">Pinos e Núcleos</span><h3>Pinos Sextavado</h3><p>Pinos de seção sextavada (KO pins) para formar sextavado interno ou ejetar a peça mantendo orientação angular.</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/nucleo-cilindrico" data-grupo="pinos" data-nome="núcleo cilíndrico"><div class="tile"><img class="pfoto" src="/img/produtos/nucleo-cilindrico.jpg" alt="Núcleo Cilíndrico — KS Import" loading="lazy"></div><div class="bd"><span class="num">Pinos e Núcleos</span><h3>Núcleo Cilíndrico</h3><p>Núcleo (pino central) que forma o furo ou o alojamento interno cilíndrico da peça durante a conformação.</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/pastilha-recartilhada" data-grupo="pinos" data-nome="pastilha recartilhada"><div class="tile"><img class="pfoto" src="/img/produtos/pastilha-recartilhada.jpg" alt="Pastilha Recartilhada — KS Import" loading="lazy"></div><div class="bd"><span class="num">Pinos e Núcleos</span><h3>Pastilha Recartilhada</h3><p>Pastilha/inserto com recartilhado que imprime a serrilha (moletado) na superfície do fixador — aderência e travamento.</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/macho-para-porca" data-grupo="machos" data-nome="macho para porca"><div class="tile"><img class="pfoto" src="/img/produtos/macho-para-porca.jpg" alt="Macho para Porca — KS Import" loading="lazy"></div><div class="bd"><span class="num">Machos de Rosca</span><h3>Macho para Porca</h3><p>Macho de alta produção para abrir a rosca interna de porcas em máquinas roscadeiras automáticas.</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/macho-haste-bengala" data-grupo="machos" data-nome="macho com haste bengala"><div class="tile"><img class="pfoto" src="/img/produtos/macho-haste-bengala.jpg" alt="Macho com Haste Bengala — KS Import" loading="lazy"></div><div class="bd"><span class="num">Machos de Rosca</span><h3>Macho com Haste Bengala</h3><p>Macho de haste longa curvada (bengala) para roscadeiras de porca em que a peça sai continuamente pela haste.</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/pente-laminacao-rosca" data-grupo="roscas" data-nome="pente para laminação de rosca"><div class="tile"><img class="pfoto" src="/img/produtos/pente-laminacao-rosca.jpg" alt="Pente para Laminação de Rosca — KS Import" loading="lazy"></div><div class="bd"><span class="num">Laminação de Roscas</span><h3>Pente para Laminação de Rosca</h3><p>Pente (par de facas planas) que lamina a rosca por deformação a frio — inclui ChipBoard e auto-atarrachante (DIN 7970).</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/conjunto-drywall" data-grupo="comple" data-nome="conjunto para parafusos drywall"><div class="tile"><img class="pfoto" src="/img/produtos/conjunto-drywall.jpg" alt="Conjunto para Parafusos Drywall — KS Import" loading="lazy"></div><div class="bd"><span class="num">Conjuntos e Periféricos</span><h3>Conjunto para Parafusos Drywall</h3><p>Jogo de ferramental completo para a fabricação de parafusos drywall — cabeça trombeta, ponta agulha/broca e fenda Phillips.</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/ferramentas-dupla-acao" data-grupo="comple" data-nome="ferramentas para máquinas de dupla ação"><div class="tile"><img class="pfoto" src="/img/produtos/ferramentas-dupla-acao.jpg" alt="Ferramentas para Máquinas de Dupla Ação — KS Import" loading="lazy"></div><div class="bd"><span class="num">Conjuntos e Periféricos</span><h3>Ferramentas para Máquinas de Dupla Ação</h3><p>Ferramental de dupla ação (double-blow) para formadoras FA-5 a FA-20 — dois golpes por estação, cabeças mais complexas.</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/pinca-transferencia" data-grupo="comple" data-nome="pinça de transferência"><div class="tile"><img class="pfoto" src="/img/produtos/pinca-transferencia.jpg" alt="Pinça de Transferência — KS Import" loading="lazy"></div><div class="bd"><span class="num">Conjuntos e Periféricos</span><h3>Pinça de Transferência</h3><p>Dedo/garra que transfere a peça de uma estação para a próxima nas formadoras progressivas (transfer).</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/suporte-pinca" data-grupo="comple" data-nome="suporte de pinça"><div class="tile"><img class="pfoto" src="/img/produtos/suporte-pinca.jpg" alt="Suporte de Pinça — KS Import" loading="lazy"></div><div class="bd"><span class="num">Conjuntos e Periféricos</span><h3>Suporte de Pinça</h3><p>Suporte/base que fixa e comanda as pinças de transferência, mantendo sincronismo e posição no transporte da peça.</p><span class="more">Ver produto →</span></div></a>
-        <a class="pcard" href="/bomba-oleo-yh15" data-grupo="comple" data-nome="bomba de óleo yh15"><div class="tile"><img class="pfoto" src="/img/produtos/bomba-oleo-yh15.jpg" alt="Bomba de Óleo YH15 — KS Import" loading="lazy"></div><div class="bd"><span class="num">Conjuntos e Periféricos</span><h3>Bomba de Óleo YH15</h3><p>Bomba de lubrificação modelo YH15 para formadoras — leva óleo aos pontos de atrito e mantém a máquina protegida.</p><span class="more">Ver produto →</span></div></a>
-      </div>
-      <p id="catempty" style="display:none;color:#5b6470;font-size:15px;padding:16px 2px">Nenhum produto encontrado para esse filtro. <a href="#contato" style="color:var(--azul);font-weight:600">Fale com a KS</a> que localizamos o item para você.</p>
     </div>
 
     <!-- LINHA 2 · FIXADORES -->
@@ -471,37 +420,6 @@
     }catch(err){ btn.disabled=false; btn.textContent="Enviar para cotação"; msg.style.color="#c0392b"; msg.textContent="Falha de conexão. Tente novamente."; }
     return false;
   }
-</script>
-<script>
-  /* Catálogo: busca + filtro por grupo (com ?g= na URL) */
-  (function(){
-    const grid=document.getElementById('catgrid'); if(!grid) return;
-    const cards=[...grid.querySelectorAll('.pcard')];
-    const q=document.getElementById('catq');
-    const btns=[...document.querySelectorAll('.fbtn')];
-    const empty=document.getElementById('catempty');
-    let grupo='all';
-    function apply(){
-      const term=(q.value||'').trim().toLowerCase();
-      let vis=0;
-      cards.forEach(c=>{
-        const okG = grupo==='all' || c.dataset.grupo===grupo;
-        const okT = !term || c.dataset.nome.includes(term) || c.textContent.toLowerCase().includes(term);
-        const show = okG && okT;
-        c.style.display = show ? '' : 'none';
-        if(show) vis++;
-      });
-      empty.style.display = vis ? 'none' : '';
-    }
-    btns.forEach(b=>b.addEventListener('click',()=>{
-      btns.forEach(x=>x.classList.remove('active'));
-      b.classList.add('active'); grupo=b.dataset.f; apply();
-    }));
-    q.addEventListener('input',apply);
-    // pré-seleção via ?g=grupo
-    const g=new URLSearchParams(location.search).get('g');
-    if(g){ const b=btns.find(x=>x.dataset.f===g); if(b){ b.click(); } }
-  })();
 </script>
 </body>
 </html>
