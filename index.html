@@ -170,7 +170,6 @@
   footer.ft a:hover{color:var(--ciano)}
   .fbar{border-top:1px solid rgba(255,255,255,.08);margin-top:40px;padding-top:22px;font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
-  /* CATÁLOGO — barra de busca/filtro */
   .catbar{display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center;justify-content:space-between;margin:4px 0 26px}
   .catsearch{flex:1;min-width:240px}
   .catsearch input{width:100%;max-width:420px;padding:12px 16px;border:1px solid var(--aco);border-radius:999px;font-family:Inter;font-size:14.5px;background:#fff}
@@ -192,13 +191,13 @@
       <span class="has-dd">
         <a class="ddt" href="#produtos">Produtos ▾</a>
         <span class="dd">
-          <a href="#produtos"><b>Ver todas as linhas</b></a>
-          <a href="/?g=puncoes#catalogo">Punções</a>
-          <a href="/?g=matrizes#catalogo">Matrizes</a>
-          <a href="/?g=pinos#catalogo">Pinos e Núcleos</a>
-          <a href="/?g=machos#catalogo">Machos de Rosca</a>
-          <a href="/?g=roscas#catalogo">Laminação de Roscas</a>
-          <a href="/?g=comple#catalogo">Conjuntos e Periféricos</a>
+          <a href="/#catalogo"><b>Ver catálogo completo</b></a>
+          <a href="/puncoes">Punções</a>
+          <a href="/matrizes">Matrizes</a>
+          <a href="/pinos-nucleos">Pinos e Núcleos</a>
+          <a href="/machos-rosca">Machos de Rosca</a>
+          <a href="/laminacao-roscas">Laminação de Roscas</a>
+          <a href="/conjuntos-perifericos">Conjuntos e Periféricos</a>
           <a href="/cabecas-de-parafuso">Cabeças de Parafuso</a>
           <a href="/chaves-de-fenda">Chaves de Fenda</a>
         </span>
@@ -253,13 +252,8 @@
         <span class="who">para <b>fábricas de fixadores</b> · estamparia e conformação a frio</span>
       </div>
       <div class="catbar">
-        <div class="catsearch">
-          <input id="catq" type="search" placeholder="Buscar produto (ex.: matriz, punção, pente, macho…)" aria-label="Buscar produto">
-        </div>
-        <div class="catfilters">
-          <button type="button" class="fbtn active" data-f="all">Todos</button>
-          <button type="button" class="fbtn" data-f="puncoes">Punções</button><button type="button" class="fbtn" data-f="matrizes">Matrizes</button><button type="button" class="fbtn" data-f="pinos">Pinos e Núcleos</button><button type="button" class="fbtn" data-f="machos">Machos de Rosca</button><button type="button" class="fbtn" data-f="roscas">Laminação de Roscas</button><button type="button" class="fbtn" data-f="comple">Conjuntos e Periféricos</button>
-        </div>
+        <div class="catsearch"><input id="catq" type="search" placeholder="Buscar produto (ex.: matriz, punção, pente, macho…)" aria-label="Buscar produto"></div>
+        <div class="catfilters"><button type="button" class="fbtn active" data-f="all">Todos</button><button type="button" class="fbtn" data-f="puncoes">Punções</button><button type="button" class="fbtn" data-f="matrizes">Matrizes</button><button type="button" class="fbtn" data-f="pinos">Pinos e Núcleos</button><button type="button" class="fbtn" data-f="machos">Machos de Rosca</button><button type="button" class="fbtn" data-f="roscas">Laminação de Roscas</button><button type="button" class="fbtn" data-f="comple">Conjuntos e Periféricos</button></div>
       </div>
       <div class="grid" id="catgrid">
         <a class="pcard" href="/puncao-1-estagio" data-grupo="puncoes" data-nome="punção 1º estágio"><div class="tile"><img class="pfoto" src="/img/produtos/puncao-1-estagio.jpg" alt="Punção 1º Estágio — KS Import" loading="lazy"></div><div class="bd"><span class="num">Punções</span><h3>Punção 1º Estágio</h3><p>Punção da primeira estação da formadora: faz o pré-recalque e prepara o volume de material para as estações seguintes.</p><span class="more">Ver produto →</span></div></a>
@@ -473,7 +467,6 @@
   }
 </script>
 <script>
-  /* Catálogo: busca + filtro por grupo (com ?g= na URL) */
   (function(){
     const grid=document.getElementById('catgrid'); if(!grid) return;
     const cards=[...grid.querySelectorAll('.pcard')];
@@ -482,23 +475,16 @@
     const empty=document.getElementById('catempty');
     let grupo='all';
     function apply(){
-      const term=(q.value||'').trim().toLowerCase();
-      let vis=0;
+      const term=(q.value||'').trim().toLowerCase(); let vis=0;
       cards.forEach(c=>{
         const okG = grupo==='all' || c.dataset.grupo===grupo;
         const okT = !term || c.dataset.nome.includes(term) || c.textContent.toLowerCase().includes(term);
-        const show = okG && okT;
-        c.style.display = show ? '' : 'none';
-        if(show) vis++;
+        const show = okG && okT; c.style.display = show ? '' : 'none'; if(show) vis++;
       });
       empty.style.display = vis ? 'none' : '';
     }
-    btns.forEach(b=>b.addEventListener('click',()=>{
-      btns.forEach(x=>x.classList.remove('active'));
-      b.classList.add('active'); grupo=b.dataset.f; apply();
-    }));
+    btns.forEach(b=>b.addEventListener('click',()=>{btns.forEach(x=>x.classList.remove('active'));b.classList.add('active');grupo=b.dataset.f;apply();}));
     q.addEventListener('input',apply);
-    // pré-seleção via ?g=grupo
     const g=new URLSearchParams(location.search).get('g');
     if(g){ const b=btns.find(x=>x.dataset.f===g); if(b){ b.click(); } }
   })();
