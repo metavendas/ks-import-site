@@ -12,5 +12,9 @@
         { "key": "Permissions-Policy", "value": "geolocation=(), microphone=(), camera=()" }
       ]
     }
+  ],
+  "rewrites": [
+    { "source": "/jornal", "destination": "https://vbolwaskiquchzbbuzol.supabase.co/functions/v1/ks-jornal" },
+    { "source": "/jornal/sitemap.xml", "destination": "https://vbolwaskiquchzbbuzol.supabase.co/functions/v1/ks-jornal?sitemap=1" }
   ]
 }
