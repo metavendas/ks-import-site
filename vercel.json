@@ -14,7 +14,7 @@
     }
   ],
   "rewrites": [
-    { "source": "/jornal", "destination": "https://vbolwaskiquchzbbuzol.supabase.co/functions/v1/ks-jornal" },
-    { "source": "/jornal/sitemap.xml", "destination": "https://vbolwaskiquchzbbuzol.supabase.co/functions/v1/ks-jornal?sitemap=1" }
+    { "source": "/jornal", "destination": "/api/jornal" },
+    { "source": "/jornal/sitemap.xml", "destination": "/api/jornal?sitemap=1" }
   ]
 }
