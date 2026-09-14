@@ -12,5 +12,9 @@
         { "key": "Permissions-Policy", "value": "geolocation=(), microphone=(), camera=()" }
       ]
     }
+  ],
+  "rewrites": [
+    { "source": "/jornal", "destination": "/api/jornal" },
+    { "source": "/jornal/sitemap.xml", "destination": "/api/jornal?sitemap=1" }
   ]
 }
