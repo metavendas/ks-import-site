@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KS Import — Tooling for fastener manufacturers</title>
+<link rel="canonical" href="https://www.ksimport.com.br/en/">
+<meta name="description" content="Ready-made tooling for industry: punches, pins, dies, thread rolling dies and thread-forming taps, in KS, ANSI, DIN, JIS and ISO standards. KS Import represents international factories and handles the sale — from the right manufacturer to your machine. Technical quote in minutes and service throughout Brazil.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --grafite:#2B2F36; --g900:#15181D; --g800:#1D2127; --azul:#1C6FB5; --prof:#0E3F73; --ciano:#2BA8E0;
+    --prata:#9AA3AD; --aco:#D7DCE2; --aco2:#E7EBEF; --nevoa:#F1F4F7; --branco:#F8FAFC;
+    --grad:linear-gradient(135deg,#2BA8E0 0%,#1C6FB5 48%,#0E3F73 100%);
+    --metal:linear-gradient(135deg,#3a3f47 0%,#22262c 55%,#15181d 100%);
+    --steel:linear-gradient(145deg,#eef1f4 0%,#cdd4db 45%,#aab2bb 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,sans-serif;color:var(--grafite);background:var(--branco);line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:Saira,sans-serif;line-height:1.1;letter-spacing:-.01em}
+  a{text-decoration:none;color:inherit}
+  .c{max-width:1180px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--azul);font-weight:600;display:inline-flex;align-items:center;gap:9px}
+  .eyebrow::before{content:"";width:13px;height:15px;background:var(--grad);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:15px;padding:14px 26px;border-radius:6px;transition:.22s;cursor:pointer;border:1px solid transparent}
+  .btn-p{background:var(--grad);color:#fff;box-shadow:0 8px 24px rgba(14,63,115,.28)}
+  .btn-p:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(14,63,115,.4)}
+  .btn-o{border-color:rgba(255,255,255,.35);color:#fff}
+  .btn-o:hover{background:rgba(255,255,255,.08)}
+  .btn-d{border-color:var(--grafite);color:var(--grafite)}
+  .btn-d:hover{background:var(--grafite);color:#fff}
+
+  /* NAV */
+  header{position:sticky;top:0;z-index:50;background:rgba(248,250,252,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--aco)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .logo{display:flex;align-items:center;gap:11px;font-family:Saira;font-weight:700;font-size:23px;letter-spacing:.02em}
+  .logo .mark{width:34px;height:34px;display:grid;place-items:center;background:var(--metal);border-radius:8px;position:relative}
+  .logo .mark::after{content:"";width:15px;height:17px;background:var(--grad);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+  .logo .ks{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .logo .im{color:var(--grafite);font-weight:600}
+  .logo .logo-img{height:40px;width:auto;display:block}
+  .logo-chip{display:inline-flex;align-items:center;background:#fff;border-radius:10px;padding:9px 13px}
+  .logo-chip .logo-img{height:30px}
+  nav.links{display:flex;align-items:center;gap:34px}
+  nav.links a{font-size:15px;font-weight:500;color:#4a525b;position:relative;padding:4px 0}
+  nav.links a:hover{color:var(--grafite)}
+  nav.links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--grad);transition:.25s}
+  nav.links a:hover::after{width:100%}
+  .nav .btn{padding:10px 20px}
+  /* Botao CTA do topo: forca escrita branca (sobrepoe nav.links a, que tem mais especificidade) */
+  nav.links a.btn-p,nav.links a.btn-p:visited,nav.links a.btn-p:hover{color:#fff}
+  nav.links a.btn-p::after{display:none}
+  .has-dd{position:relative}
+  .has-dd>.ddt{cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+  .dd{position:absolute;top:calc(100% + 6px);left:0;background:#fff;border:1px solid var(--aco);border-radius:10px;box-shadow:0 16px 40px rgba(21,24,29,.14);min-width:230px;padding:8px;display:none;flex-direction:column;gap:2px}
+  .has-dd:hover .dd{display:flex}
+  .dd a{padding:10px 12px;border-radius:7px;font-size:14px;color:#4a525b}
+  .dd a::after{display:none}
+  .dd a:hover{background:var(--nevoa);color:var(--grafite)}
+  .dd a b{color:var(--grafite);font-weight:600}
+  @media(max-width:880px){nav.links a:not(.btn),nav.links .has-dd{display:none}}
+
+  /* HERO = foto do ferramental com os botoes por cima (22/08/2026) */
+  .herofoto{background:var(--branco);padding:24px 0 0}
+  .herofoto .wrap{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--aco);box-shadow:0 20px 50px rgba(21,24,29,.12);background:#fff}
+  .herofoto img{display:block;width:100%;height:auto}
+  /* Os botoes ficam ABAIXO da foto (22/08): a imagem aparece inteira, sem nada por cima. */
+  .herofoto .ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;padding:20px 0 4px}
+  /* fora da foto o fundo e' claro: o botao de contorno precisa de traco e texto escuros */
+  .herofoto .btn-o{border-color:var(--aco);color:var(--grafite);background:#fff}
+  .herofoto .btn-o:hover{border-color:var(--azul);color:var(--azul)}
+  @media(max-width:560px){.herofoto{padding:14px 0 0}.herofoto .ctas{padding:16px 0 4px;gap:9px}
+    .herofoto .ctas .btn{flex:1 1 auto;justify-content:center;padding:11px 14px;font-size:14px}}
+  /* Texto lido pelo Google e por leitor de tela, invisivel na tela (nao e' cloaking: e' o mesmo conteudo da pagina) */
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+  /* TRUST STRIP */
+  .trust{background:var(--g800);color:#C9D0D7;border-top:1px solid rgba(255,255,255,.06)}
+  .trust .in{display:flex;flex-wrap:wrap;gap:14px 40px;align-items:center;justify-content:space-between;padding:20px 0;font-size:13px;letter-spacing:.04em}
+  .trust b{color:#fff;font-family:Saira;font-weight:600}
+  .norms{display:flex;gap:10px;flex-wrap:wrap}
+  .norms span{border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:5px 14px;font-family:JetBrains Mono,monospace;font-size:12px}
+
+  /* SECTION SHELL */
+  section.s{padding:104px 0}
+  .head{max-width:640px;margin-bottom:46px}
+  .head h2{font-size:clamp(28px,3.6vw,42px);font-weight:600;margin:14px 0 10px}
+  .head p{color:#5b6470;font-size:17px}
+
+  /* PRODUTOS */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}}
+  .pcard{background:#fff;border:1px solid var(--aco);border-radius:14px;overflow:hidden;transition:.28s;display:flex;flex-direction:column}
+  .pcard:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(21,24,29,.13);border-color:var(--azul)}
+  .pcard .tile{height:172px;background:var(--steel);position:relative;display:grid;place-items:center;border-bottom:1px solid var(--aco)}
+  .pcard .tile::before{content:"";position:absolute;inset:0;opacity:.5;background:repeating-linear-gradient(125deg,rgba(255,255,255,.5) 0 2px,transparent 2px 9px)}
+  .pcard .tile .hx{width:54px;height:62px;background:var(--metal);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);position:relative;z-index:2;box-shadow:0 12px 26px rgba(21,24,29,.3)}
+  .pcard .tile .hx::after{content:"";position:absolute;inset:0;margin:auto;width:22px;height:25px;background:var(--g900);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);top:50%;left:50%;transform:translate(-50%,-50%)}
+  .pcard .tile img.pfoto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:3}
+  .pcard .bd{padding:22px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .pcard .bd .num{font-family:JetBrains Mono,monospace;font-size:12px;color:var(--azul)}
+  .pcard h3{font-size:21px;font-weight:600}
+  .pcard p{color:#5b6470;font-size:14.5px;flex:1}
+  .pcard .more{font-weight:600;color:var(--azul);font-size:14px;display:inline-flex;align-items:center;gap:7px;margin-top:6px}
+  .pcard:hover .more{gap:12px}
+  /* LINE BANDS */
+  .lineband{margin-top:18px}
+  .lineband+.lineband{margin-top:64px}
+  .lhead{display:flex;align-items:baseline;justify-content:space-between;gap:18px;flex-wrap:wrap;padding-bottom:18px;margin-bottom:26px;border-bottom:1px solid var(--aco)}
+  .lhead .lt{display:flex;align-items:center;gap:13px}
+  .lhead .lt .hx{width:30px;height:34px;background:var(--metal);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);flex-shrink:0;position:relative}
+  .lhead .lt .hx::after{content:"";position:absolute;inset:0;margin:auto;width:11px;height:13px;background:var(--grad);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);top:50%;left:50%;transform:translate(-50%,-50%)}
+  .lhead h3{font-size:23px;font-weight:600}
+  .lhead .who{font-family:JetBrains Mono,monospace;font-size:12px;color:#5b6470;background:var(--nevoa);border:1px solid var(--aco);border-radius:999px;padding:6px 14px}
+  .lhead .who b{color:var(--azul);font-weight:600}
+
+  /* QUEM SOMOS */
+  .about{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  @media(max-width:880px){.about{grid-template-columns:1fr;gap:34px}}
+  .about .stats{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .stat{background:var(--nevoa);border:1px solid var(--aco);border-radius:12px;padding:24px}
+  .stat b{font-family:Saira;font-size:34px;font-weight:600;display:block;color:var(--grafite)}
+  .stat b .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat span{font-size:13.5px;color:#5b6470}
+
+  /* DIFERENCIAIS */
+  .why{background:var(--nevoa);border-top:1px solid var(--aco);border-bottom:1px solid var(--aco)}
+  .feats{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  @media(max-width:880px){.feats{grid-template-columns:1fr 1fr}}
+  .feat{padding:6px 0}
+  .feat .ic{width:48px;height:48px;border-radius:11px;background:#fff;border:1px solid var(--aco);display:grid;place-items:center;margin-bottom:16px}
+  .feat .ic i{width:18px;height:20px;background:var(--grad);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+  .feat h4{font-size:18px;font-weight:600;margin-bottom:6px}
+  .feat p{font-size:14px;color:#5b6470}
+
+  /* CTA */
+  .cta{background:var(--metal);color:#fff;position:relative;overflow:hidden}
+  .cta::before{content:"";position:absolute;inset:0;opacity:.5;background:radial-gradient(600px 300px at 85% 0%,rgba(43,168,224,.3),transparent 60%)}
+  .cta .in{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;padding:64px 0}
+  .cta h2{font-size:clamp(26px,3.4vw,38px);font-weight:600;color:#fff;max-width:18ch}
+  .cta p{color:#C9D0D7;margin-top:10px;max-width:46ch}
+
+  /* CONTATO */
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:46px}
+  @media(max-width:880px){.contact{grid-template-columns:1fr}}
+  .form .f{margin-bottom:16px}
+  .form label{display:block;font-size:13px;font-weight:600;margin-bottom:7px}
+  .form input,.form textarea{width:100%;padding:13px 15px;border:1px solid var(--aco);border-radius:8px;font-family:Inter;font-size:14.5px;background:#fff}
+  .form textarea{min-height:110px;resize:vertical;font-family:JetBrains Mono,monospace}
+  .form input:focus,.form textarea:focus{outline:none;border-color:var(--azul);box-shadow:0 0 0 3px rgba(28,111,181,.12)}
+  .cinfo .row{display:flex;gap:14px;align-items:flex-start;padding:18px 0;border-bottom:1px solid var(--aco)}
+  .cinfo .row .k{width:42px;height:42px;border-radius:10px;background:var(--nevoa);border:1px solid var(--aco);display:grid;place-items:center;flex-shrink:0}
+  .cinfo .row .k i{width:15px;height:17px;background:var(--grad);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+  .cinfo .row b{display:block;font-family:Saira;font-size:16px}
+  .cinfo .row span{font-size:14px;color:#5b6470}
+
+  /* FOOTER */
+  footer.ft{background:var(--g900);color:#9AA3AD;padding:62px 0 30px}
+  .fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:34px}
+  @media(max-width:880px){.fgrid{grid-template-columns:1fr 1fr}}
+  footer.ft h5{color:#fff;font-family:Saira;font-size:14px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px}
+  footer.ft a{display:block;padding:6px 0;font-size:14px}
+  footer.ft a:hover{color:var(--ciano)}
+  .fbar{border-top:1px solid rgba(255,255,255,.08);margin-top:40px;padding-top:22px;font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+  .catbar{display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center;justify-content:space-between;margin:4px 0 26px}
+  .catsearch{flex:1;min-width:240px}
+  .catsearch input{width:100%;max-width:420px;padding:12px 16px;border:1px solid var(--aco);border-radius:999px;font-family:Inter;font-size:14.5px;background:#fff}
+  .catsearch input:focus{outline:none;border-color:var(--azul);box-shadow:0 0 0 3px rgba(28,111,181,.12)}
+  .catfilters{display:flex;flex-wrap:wrap;gap:8px}
+  .fbtn{border:1px solid var(--aco);background:#fff;color:#4a525b;border-radius:999px;padding:8px 15px;font-family:Inter;font-size:13.5px;font-weight:500;cursor:pointer;transition:.18s}
+  .fbtn:hover{border-color:var(--azul);color:var(--grafite)}
+  .fbtn.active{background:var(--grad);color:#fff;border-color:transparent}
+  .pcard .tile img.pfoto{padding:14px;object-fit:contain!important;background:#fff}
+
+  /* Catalogo Ferramental: 6 cards por linha (denso) + responsivo */
+  #catgrid{grid-template-columns:repeat(6,1fr);gap:16px}
+  #catgrid .pcard .tile{height:118px}
+  #catgrid .pcard .tile img.pfoto{padding:10px}
+  #catgrid .pcard .bd{padding:13px 13px 15px;gap:5px}
+  #catgrid .pcard .num{font-size:11px}
+  #catgrid .pcard h3{font-size:15px;line-height:1.15}
+  #catgrid .pcard p{font-size:12.5px;line-height:1.5}
+  #catgrid .pcard .more{font-size:12.5px;margin-top:4px}
+  @media(max-width:1100px){#catgrid{grid-template-columns:repeat(4,1fr)}}
+  @media(max-width:820px){#catgrid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:560px){#catgrid{grid-template-columns:repeat(2,1fr)}}
+
+  .navtgl{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+  .navburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:9px;margin-left:auto;border:1px solid var(--aco);border-radius:8px;background:#fff}
+  .navburger span{display:block;width:24px;height:2px;background:var(--grafite);border-radius:2px;transition:.22s}
+  .mobmenu{display:none;position:fixed;top:74px;left:0;right:0;background:#fff;border-top:1px solid var(--aco);border-bottom:1px solid var(--aco);box-shadow:0 22px 44px rgba(21,24,29,.16);flex-direction:column;padding:6px 0 14px;z-index:60;max-height:calc(100vh - 74px);overflow-y:auto}
+  .mobmenu a{padding:14px 26px;font-size:16px;color:#3f4750;border-bottom:1px solid var(--nevoa)}
+  .mobmenu a:active,.mobmenu a:hover{background:var(--nevoa)}
+  .mobmenu a.mm-h{font-weight:700;color:var(--grafite);font-family:Saira,sans-serif}
+  .mobmenu a.mm-cta{margin:14px 26px 0;padding:15px;text-align:center;background:var(--grad);color:#fff;border-radius:9px;font-weight:600;border:none}
+  @media(max-width:880px){ nav.links{display:none} .navburger{display:flex} }
+  .navtgl:checked ~ .mobmenu{display:flex}
+  .navtgl:checked ~ .navburger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .navtgl:checked ~ .navburger span:nth-child(2){opacity:0}
+  .navtgl:checked ~ .navburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+</style>
+<!--ks-i18n--><link rel="alternate" hreflang="pt-BR" href="https://www.ksimport.com.br/"><link rel="alternate" hreflang="es" href="https://www.ksimport.com.br/es/"><link rel="alternate" hreflang="en" href="https://www.ksimport.com.br/en/"><link rel="alternate" hreflang="x-default" href="https://www.ksimport.com.br/"><style id="ks-lang-css">.ks-lang{display:inline-flex;gap:2px;align-items:center;margin-left:6px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.04em}.ks-lang a{padding:5px 8px!important;margin:0!important;border:1px solid var(--aco,#D7DCE2);border-radius:4px;color:var(--grafite,#2B2F36)!important;background:transparent;text-decoration:none;line-height:1;min-width:0}.ks-lang a[aria-current]{background:var(--azul,#1C6FB5);border-color:var(--azul,#1C6FB5);color:#F8FAFC!important}.ks-lang a:hover{border-color:var(--azul,#1C6FB5)}.ks-lang-mob{display:flex;gap:6px;margin:12px 26px 6px}</style>
+</head>
+<body>
+
+<header>
+  <div class="c nav">
+    <a href="#topo" class="logo" aria-label="KS Import"><img class="logo-img" src="/logo-ks.png" alt="KS Import"></a>
+    <nav class="links">
+      <span class="has-dd">
+        <a class="ddt" href="#produtos">Products ▾</a>
+        <span class="dd">
+          <a href="/en/#catalogo"><b>View full catalog</b></a>
+          <a href="/en/puncoes">Punches</a>
+          <a href="/en/matrizes">Dies</a>
+          <a href="/en/pinos-nucleos">Pins and Cores</a>
+          <a href="/en/machos-rosca">Taps</a>
+          <a href="/en/laminacao-roscas">Thread Rolling</a>
+          <a href="/en/conjuntos-perifericos">Sets and Peripherals</a>
+          <a href="/en/cabecas-de-parafuso">Screw Heads</a>
+          <a href="/en/chaves-de-fenda">Screwdrivers</a>
+        </span>
+      </span>
+      <a href="/jornal">Journal (PT)</a>
+      <a href="#quem">About us</a>
+      <a href="#porque">Differentiators</a>
+      <a href="#contato">Contact</a>
+      <a href="#contato" class="btn btn-p">Request a quote</a>
+    <span class="ks-lang" aria-label="Idioma / Language"><a href="/" hreflang="pt-BR" lang="pt-BR">PT</a><a href="/es/" hreflang="es" lang="es">ES</a><a href="/en/" hreflang="en" lang="en" aria-current="true">EN</a></span>
+    </nav>
+      <input type="checkbox" id="navtgl" class="navtgl" aria-hidden="true">
+      <label for="navtgl" class="navburger" aria-label="Open menu"><span></span><span></span><span></span></label>
+      <div class="mobmenu">
+        <span class="ks-lang ks-lang-mob" aria-label="Idioma / Language"><a href="/" hreflang="pt-BR" lang="pt-BR">PT</a><a href="/es/" hreflang="es" lang="es">ES</a><a href="/en/" hreflang="en" lang="en" aria-current="true">EN</a></span>
+        <a class="mm-h" href="/en/#catalogo">Full catalog</a>
+        <a href="/en/puncoes">Punches</a>
+        <a href="/en/matrizes">Dies</a>
+        <a href="/en/pinos-nucleos">Pins and Cores</a>
+        <a href="/en/machos-rosca">Taps</a>
+        <a href="/en/laminacao-roscas">Thread Rolling</a>
+        <a href="/en/conjuntos-perifericos">Sets and Peripherals</a>
+        <a href="/en/cabecas-de-parafuso">Screw Heads</a>
+        <a href="/en/chaves-de-fenda">Screwdrivers</a>
+        <a href="/jornal">KS Journal (PT)</a>
+        <a href="/en/#quem">About us</a>
+        <a href="/en/#porque">Differentiators</a>
+        <a class="mm-cta" href="/en/#contato">Request a quote</a>
+      </div>
+  </div>
+</header>
+
+<!-- HERO: a foto do ferramental abre a home, com os botoes sobre a imagem.
+     O H1 e o texto de posicionamento continuam na pagina (classe .sr-only): saem da tela,
+     mas o Google e o leitor de tela continuam lendo — sem isso a home perde o ranqueamento
+     de "ferramental para fixadores". -->
+<section class="herofoto" id="topo">
+  <div class="c">
+    <h1 class="sr-only">High-quality tooling for your company — KS Import</h1>
+    <p class="sr-only">KS Import represents international factories and sells the ready-made tooling that your fastener manufacturer uses in production: punches, pins, dies, thread rolling dies and thread-forming taps. We connect your engineering with the right manufacturer, with the specification checked item by item against the KS, ANSI, DIN, JIS and ISO standards. Technical quote in minutes and service throughout Brazil.</p>
+    <div class="wrap">
+      <img src="/img/ferramentas-para-fixadores.jpg" width="1808" height="1002" fetchpriority="high" decoding="async"
+           alt="Tooling for fastener manufacturers — punches, pins, dies, thread rolling dies and thread-forming taps from KS Import">
+    </div>
+    <div class="ctas">
+      <a href="#contato" class="btn btn-p">Request a quote</a>
+      <a href="#produtos" class="btn btn-o">View the tooling</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<div class="trust"><div class="c in">
+  <span><b>A single technical partner for all your tooling</b> · standardization in every item</span>
+  <div class="norms"><span>KS</span><span>ANSI</span><span>DIN</span><span>JIS</span><span>ISO</span><span>DIN 7970</span><span>DIN 912</span></div>
+</div></div>
+
+<!-- PRODUTOS -->
+<section class="s" id="produtos">
+  <div class="c">
+    <div class="head">
+      <span class="eyebrow">Product lines</span>
+      <h2>Ready-made tooling for your industrial process</h2>
+      <p>KS Import represents international factories and sells the tooling that your industry uses in production: punches, pins, dies, thread rolling dies and thread-forming taps. Ready-made parts, already manufactured, checked item by item against the KS, ANSI, DIN, JIS and ISO standards. You tell us what your machine needs — we bring it from the right manufacturer. Technical quote in minutes and service throughout Brazil.</p>
+    </div>
+
+    <!-- LINHA 1 · FERRAMENTAL (catálogo com fotos) -->
+    <div class="lineband" id="catalogo">
+      <div class="lhead">
+        <div class="lt"><span class="hx"></span><h3>Tooling catalog</h3></div>
+      </div>
+      <div class="catbar">
+        <div class="catsearch"><input id="catq" type="search" placeholder="Search products (e.g., die, punch, thread rolling die, tap…)" aria-label="Search products"></div>
+        <div class="catfilters"><button type="button" class="fbtn active" data-f="all">All</button><button type="button" class="fbtn" data-f="puncoes">Punches</button><button type="button" class="fbtn" data-f="matrizes">Dies</button><button type="button" class="fbtn" data-f="pinos">Pins and Cores</button><button type="button" class="fbtn" data-f="machos">Taps</button><button type="button" class="fbtn" data-f="roscas">Thread Rolling</button><button type="button" class="fbtn" data-f="comple">Sets and Peripherals</button></div>
+      </div>
+      <div class="grid" id="catgrid">
+        <a class="pcard" href="/en/puncoes-fabricacao-parafusos" data-grupo="puncoes" data-nome="punches for screw manufacturing punções para fabricação de parafusos"><div class="tile"><img class="pfoto" src="/img/produtos/puncoes-fabricacao-parafusos.jpg" alt="Punches for Screw Manufacturing — KS Import" loading="lazy"></div><div class="bd"><span class="num">Punches</span><h3>Punches for Screw Manufacturing</h3><p>Complete line of punches for stamping heads and recesses — KS, ANSI, DIN, JIS and ISO, including micro screws, one-way and six-lobe.</p><span class="more">View product →</span></div></a>
+        <a class="pcard" href="/en/puncao-1-estagio" data-grupo="puncoes" data-nome="1st stage punch punção 1º estágio"><div class="tile"><img class="pfoto" src="/img/produtos/puncao-1-estagio.jpg" alt="1st Stage Punch — KS Import" loading="lazy"></div><div class="bd"><span class="num">Punches</span><h3>1st Stage Punch</h3><p>Punch of the cold former's first station: performs the pre-upsetting and prepares the volume of material for the following stations.</p><span class="more">View product →</span></div></a>
+        <a class="pcard" href="/en/capa-2a-puncao" data-grupo="comple" data-nome="2nd punch case capa da 2ª punção"><div class="tile"><img class="pfoto" src="/img/produtos/capa-2a-puncao.jpg" alt="2nd Punch Case — KS Import" loading="lazy"></div><div class="bd"><span class="num">Sets and Peripherals</span><h3>2nd Punch Case</h3><p>Case that houses and reinforces the second-station punch, giving the head its final finish.</p><span class="more">View product →</span></div></a>
+        <a class="pcard" href="/en/puncao-com-gravura" data-grupo="puncoes" data-nome="punch with engraving punção com gravura"><div class="tile"><img class="pfoto" src="/img/produtos/puncao-com-gravura.jpg" alt="Punch with Engraving — KS Import" loading="lazy"></div><div class="bd"><span class="num">Punches</span><h3>Punch with Engraving</h3><p>Punch that stamps the head marking — logo, strength class and manufacturer identification — in the same blow as upsetting.</p><span class="more">View product →</span></div></a>
+        <a class="pcard" href="/en/puncao-sextavado" data-grupo="puncoes" data-nome="hex punch punção sextavado"><div class="tile"><img class="pfoto" src="/img/produtos/puncao-sextavado.jpg" alt="Hex Punch — KS Import" loading="lazy"></div><div class="bd"><span class="num">Punches</span><h3>Hex Punch</h3><p>Punch that forms the internal hex (Allen socket) in the head of screws driven by hex key.</p><span class="more">View product →</span></div></a>
+        <a class="pcard" href="/en/matriz-cilindrica" data-grupo="matrizes" data-nome="cylindrical die matriz cilíndrica"><div class="tile"><img class="pfoto" src="/img/produtos/matriz-cilindrica.jpg" alt="Cylindrical Die — KS Import" loading="lazy"></div><div class="bd"><span class="num">Dies</span><h3>Cylindrical Die</h3><p>Cylindrical-bore die that confines the fastener body during upsetting, ensuring diameter and straightness.</p><span class="more">View product →</span></div></a>
+        <a class="pcard" href="/en/matriz-cilindrica-estriada" data-grupo="matrizes" data-nome="ribbed cylindrical die matriz cilíndrica estriada"><div class="tile"><img class="pfoto" src="/img/produtos/matriz-cilindrica-estriada.jpg" alt="Ribbed Cylindrical Die — KS Import" loading="lazy"></div><div class="bd"><span class="num">Dies</span><h3>Ribbed Cylindrical Die</h3><p>Cylindrical die with internal ribs that form grooves/serration on the body or under the head of the fastener.</p><span class="more">View product →</span></div></a>
+        <a class="pcard" href="/en/matriz-serrilhado" data-grupo="matrizes" data-nome="serrated die matriz com serrilhado"><div class="tile"><img class="pfoto" src="/img/produtos/matriz-serrilhado.jpg" alt="Serrated Die — KS Import" loading="lazy"></div><div class="bd"><span class="num">Dies</span><h3>Serrated Die</h3><p>Die that forms serration under the head — teeth that lock the fastener against the surface and prevent loosening.</p><span class="more">View product →</span></div></a>
+        <a class="pcard" href="/en/matriz-recorte" data-grupo="matrizes" data-nome="trimming die matriz de recorte"><div class="tile"><img class="pfoto" src="/img/produtos/matriz-recorte.jpg" alt="Trimming Die — KS Import" loading="lazy"></div><div class="bd"><span class="num">Dies</span><h3>Trimming Die</h3><p>Trimming die that trims the preformed head to the hex or defined profile, giving the final finish.</p><span class="more">View product →</span></div></a>
+        <a class="pcard" href="/en/matriz-recorte-quadrado" data-grupo="matrizes" data-nome="square trimming die matriz de recorte quadrado"><div class="tile"><img class="pfoto" src="/img/produtos/matriz-recorte-quadrado.jpg" alt="Square Trimming Die — KS Import" loading="lazy"></div><div class="bd"><span class="num">Dies</span><h3>Square Trimming Die</h3><p>Trimming die with square profile, for square heads and square necks of screws and special elements.</p><span class="more">View product →</span></div></a>
+        <a class="pcard" href="/en/matriz-recorte-retangular" data-grupo="matrizes" data-nome="rectangular trimming die matriz de recorte retangular"><div class="tile"><img class="pfoto" src="/img/produtos/matriz-recorte-retangular.jpg" alt="Rectangular Trimming Die — KS Import" loading="lazy"></div><div class="bd"><span class="num">Dies</span><h3>Rectangular Trimming Die</h3><p>Rectangular-profile trimming die for elongated heads and bosses of fasteners and special components.</p><span class="more">View product →</span></div></a>
+        <a class="pcard" href="/en/matriz-ponta-broca" data-grupo="matrizes" data-nome="drill point die matriz ponta broca"><div class="tile"><img class="pfoto" src="/img/produtos/matriz-ponta-broca.jpg" alt="Drill Point Die — KS Import" loading="lazy"></div><div class="bd"><span class="num">Dies</span><h3>Drill Point Die</h3><p>Tooling that forms the drill point (self-drilling) of self-drilling type screws, for fastening without a pilot hole.</p><span class="more">View product →</span></div></a>
+        <a class="pcard" href="/en/matriz-segmentada" data-grupo="matrizes" data-nome="segmented die matriz segmentada"><div class="tile"><img class="pfoto" src="/img/produtos/matriz-segmentada.jpg" alt="Segmented Die — KS Import" loading="lazy"></div><div class="bd"><span class="num">Dies</span><h3>Segmented Die</h3><p>Die built in segments (split) to form complex profiles and ease the removal of parts with internal details.</p><span class="more">View product →</span></div></a>
+        <a class="pcard" href="/en/matriz-sextavada" data-grupo="matrizes" data-nome="hex die matriz sextavada"><div class="tile"><img class="pfoto" src="/img/produtos/matriz-sextavada.jpg" alt="Hex Die — KS Import" loading="lazy"></div><div class="bd"><span class="num">Dies</span><h3>Hex Die</h3><p>Hexagonal-cavity die that directly forms the six-sided head during upsetting, with precision faces and corners.</p><span class="more">View product →</span></div></a>
+        <a class="pcard" href="/en/matriz-trava" data-grupo="matrizes" data-nome="locking die matriz trava"><div class="tile"><img class="pfoto" src="/img/produtos/matriz-trava.png" alt="Die Lock — KS Import" loading="lazy"></div><div class="bd"><span class="num">Dies</span><h3>Locking Die</h3><p>Element that locks/secures the die in the cold former's die holder, ensuring position and resistance to impact.</p><span class="more">View product →</span></div></a>
+        <a class="pcard" href="/en/pino-dodecagonal" data-grupo="pinos" data-nome="dodecagonal pin pino dodecagonal"><div class="tile"><img class="pfoto" src="/img/produtos/pino-dodecagonal.jpg" alt="Dodecagonal Pin — KS Import" loading="lazy"></div><div class="bd"><span class="num">Pins and Cores</span><h3>Dodecagonal Pin</h3><p>Dodecagonal-profile (12-point) pin/mandrel to form high-torque multi-point sockets in the fastener head.</p><span class="more">View product →</span></div></a>
+        <a class="pcard" href="/en/pino-extrusao" data-grupo="pinos" data-nome="extrusion pin pino de extrusão"><div class="tile"><img class="pfoto" src="/img/produtos/pino-extrusao.jpg" alt="Extrusion Pin — KS Import" loading="lazy"></div><div class="bd"><span class="num">Pins and Cores</span><h3>Extrusion Pin</h3><p>Pin that forces the material through the die in cold extrusion, reducing the diameter and lengthening the body of the part.</p><span class="more">View product →</span></div></a>
+        <a class="pcard" href="/en/pino-quadrado" data-grupo="pinos" data-nome="square pin pino quadrado"><div class="tile"><img class="pfoto" src="/img/produtos/pino-quadrado.jpg" alt="Square Pin — KS Import" loading="lazy"></div><div class="bd"><span class="num">Pins and Cores</span><h3>Square Pin</h3><p>Square-section pin to form square housings/recesses or act as an anti-rotation ejector.</p><span class="more">View product →</span></div></a>
+        <a class="pcard" href="/en/pinos-sextavado" data-grupo="pinos" data-nome="hex pins pinos sextavado"><div class="tile"><img class="pfoto" src="/img/produtos/pinos-sextavado.jpg" alt="Hex Pins — KS Import" loading="lazy"></div><div class="bd"><span class="num">Pins and Cores</span><h3>Hex Pins</h3><p>Hex-section pins (KO pins) to form an internal hex or eject the part while maintaining angular orientation.</p><span class="more">View product →</span></div></a>
+        <a class="pcard" href="/en/pastilha-recartilhada" data-grupo="pinos" data-nome="knurled insert pastilha recartilhada"><div class="tile"><img class="pfoto" src="/img/produtos/pastilha-recartilhada.jpg" alt="Knurled Insert — KS Import" loading="lazy"></div><div class="bd"><span class="num">Pins and Cores</span><h3>Knurled Insert</h3><p>Insert with knurling that imprints the serration (knurl) on the fastener surface — grip and locking.</p><span class="more">View product →</span></div></a>
+        <a class="pcard" href="/en/macho-para-porca" data-grupo="machos" data-nome="nut tap macho para porca"><div class="tile"><img class="pfoto" src="/img/produtos/macho-para-porca.jpg" alt="Nut Tap — KS Import" loading="lazy"></div><div class="bd"><span class="num">Taps</span><h3>Nut Tap</h3><p>High-output tap for cutting the internal thread of nuts on automatic tapping machines.</p><span class="more">View product →</span></div></a>
+        <a class="pcard" href="/en/macho-haste-bengala" data-grupo="machos" data-nome="bent shank tap macho com haste bengala"><div class="tile"><img class="pfoto" src="/img/produtos/macho-haste-bengala.jpg" alt="Bent Shank Tap — KS Import" loading="lazy"></div><div class="bd"><span class="num">Taps</span><h3>Bent Shank Tap</h3><p>Long curved shank (bent) tap for nut tapping machines in which the part exits continuously along the shank.</p><span class="more">View product →</span></div></a>
+        <a class="pcard" href="/en/pente-laminacao-rosca" data-grupo="roscas" data-nome="thread rolling die pente para laminação de rosca"><div class="tile"><img class="pfoto" src="/img/produtos/pente-laminacao-rosca.jpg" alt="Thread Rolling Die — KS Import" loading="lazy"></div><div class="bd"><span class="num">Thread Rolling</span><h3>Thread Rolling Die</h3><p>Thread rolling die (pair of flat blades) that rolls the thread by cold deformation — includes ChipBoard and self-tapping (DIN 7970).</p><span class="more">View product →</span></div></a>
+        <a class="pcard" href="/en/conjunto-drywall" data-grupo="comple" data-nome="drywall screw set conjunto para parafusos drywall"><div class="tile"><img class="pfoto" src="/img/produtos/conjunto-drywall.jpg" alt="Drywall Screw Set — KS Import" loading="lazy"></div><div class="bd"><span class="num">Sets and Peripherals</span><h3>Drywall Screw Set</h3><p>Complete tooling set for manufacturing drywall screws — bugle head, needle/drill point and Phillips recess.</p><span class="more">View product →</span></div></a>
+        <a class="pcard" href="/en/ferramentas-dupla-acao" data-grupo="comple" data-nome="tools for double-action machines ferramentas para máquinas de dupla ação"><div class="tile"><img class="pfoto" src="/img/produtos/ferramentas-dupla-acao.jpg" alt="Tools for Double-Action Machines — KS Import" loading="lazy"></div><div class="bd"><span class="num">Sets and Peripherals</span><h3>Tools for Double-Action Machines</h3><p>Double-action (double-blow) tooling for FA-5 to FA-20 cold formers — two blows per station, more complex heads.</p><span class="more">View product →</span></div></a>
+        <a class="pcard" href="/en/pinca-transferencia" data-grupo="comple" data-nome="transfer finger pinça de transferência"><div class="tile"><img class="pfoto" src="/img/produtos/pinca-transferencia.jpg" alt="Transfer Finger — KS Import" loading="lazy"></div><div class="bd"><span class="num">Sets and Peripherals</span><h3>Transfer Finger</h3><p>Finger/gripper that transfers the part from one station to the next on progressive cold formers (transfer).</p><span class="more">View product →</span></div></a>
+        <a class="pcard" href="/en/suporte-pinca" data-grupo="comple" data-nome="transfer finger holder suporte de pinça"><div class="tile"><img class="pfoto" src="/img/produtos/suporte-pinca.jpg" alt="Transfer Finger Holder — KS Import" loading="lazy"></div><div class="bd"><span class="num">Sets and Peripherals</span><h3>Transfer Finger Holder</h3><p>Holder/base that secures and drives the transfer fingers, maintaining synchronization and position in part transport.</p><span class="more">View product →</span></div></a>
+      </div>
+      <p id="catempty" style="display:none;color:#5b6470;font-size:15px;padding:16px 2px">No products found for this filter. <a href="#contato" style="color:var(--azul);font-weight:600">Talk to KS</a> and we will locate the item for you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- QUEM SOMOS -->
+<section class="s" id="quem" style="background:var(--nevoa);border-top:1px solid var(--aco)">
+  <div class="c about">
+    <div>
+      <span class="eyebrow">About us</span>
+      <h2 style="font-size:clamp(28px,3.6vw,42px);font-weight:600;margin:14px 0 16px">Technical partners end to end in fastening</h2>
+      <p style="color:#5b6470;font-size:17px;margin-bottom:14px">KS Import imports and distributes both ends of the chain: the <b>precision tooling</b> for those who make fasteners and the <b>fasteners</b> for those who use them in assembly — machines and equipment, agricultural implements, auto parts and metal construction. More than selling parts, we deliver availability, technical standardization and a reliable lead time.</p>
+      <p style="color:#5b6470;font-size:17px">Response speed, catalog depth and order traceability are our competitive advantage. Stopping production is expensive — and that is exactly what we avoid, on both sides of the line.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><b><span class="g">−70%</span></b><span>in quote response time</span></div>
+      <div class="stat"><b>&lt; 2<span style="font-size:18px"> min</span></b><span>1st reply on WhatsApp</span></div>
+      <div class="stat"><b>100%</b><span>orders trackable in real time</span></div>
+      <div class="stat"><b>5<span style="font-size:18px"> standards</span></b><span>KS · ANSI · DIN · JIS · ISO</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section class="s why" id="porque">
+  <div class="c">
+    <div class="head"><span class="eyebrow">Why KS</span><h2>Whoever replies first, with a reliable lead time, builds loyalty.</h2></div>
+    <div class="feats">
+      <div class="feat"><div class="ic"><i></i></div><h4>Quote in minutes</h4><p>Technical identification of the item and reply with price, lead time and availability.</p></div>
+      <div class="feat"><div class="ic"><i></i></div><h4>Technical standard</h4><p>Items per KS, ANSI, DIN, JIS and ISO — no specification ambiguity.</p></div>
+      <div class="feat"><div class="ic"><i></i></div><h4>End-to-end tracking</h4><p>From purchase/import to delivery, with proactive notices at every milestone.</p></div>
+      <div class="feat"><div class="ic"><i></i></div><h4>Items made to drawing</h4><p>Special tooling and fasteners developed for your application.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="c in">
+    <div><h2>Need tooling or fasteners?</h2><p>Send the list or the drawing — from punches to screws. We quote with price, lead time and availability, and you track the order all the way to your line.</p></div>
+    <a href="#contato" class="btn btn-p">Request a quote</a>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="s" id="contato">
+  <div class="c contact">
+    <div>
+      <span class="eyebrow">Contact</span>
+      <h2 style="font-size:clamp(28px,3.6vw,40px);font-weight:600;margin:14px 0 10px">Talk to the technical team</h2>
+      <p style="color:#5b6470;font-size:17px;margin-bottom:26px">Paste your list of items (standard, size, quantity) or attach the drawing — we will get back to you with the quote.</p>
+      <form class="form" id="ksLeadForm" onsubmit="return ksLeadSubmit(event)">
+        <div class="f"><label>Company / CNPJ</label><input id="lkEmpresa" placeholder="Legal name or CNPJ"></div>
+        <div class="f"><label>Line of interest</label><select id="lkLinha"><option value="">Tooling, Fasteners, or both</option><option value="ferramental">Tooling</option><option value="fixadores">Fasteners</option></select></div>
+        <div class="f"><label>Items</label><textarea id="lkItens" placeholder="E.g.: Pan head punch ISO 7045 M5 — 20 pcs
+Hex screw DIN 933 M8x30 class 8.8 — 5,000 pcs
+Thread rolling die DIN 7970 CR — 4 sets"></textarea></div>
+        <div class="f"><label>WhatsApp for reply</label><input id="lkFone" placeholder="(00) 00000-0000"></div>
+        <div class="f" style="position:absolute;left:-9999px" aria-hidden="true"><label>Do not fill in</label><input id="lkHp" tabindex="-1" autocomplete="off"></div>
+        <button class="btn btn-p" style="width:100%;justify-content:center">Submit for quote</button>
+        <div id="lkMsg" style="margin-top:10px;font-size:14px"></div>
+      </form>
+    </div>
+    <div class="cinfo" style="align-self:center">
+      <div class="row"><div class="k"><i></i></div><div><b>Sales WhatsApp</b><span>Service and technical quote</span></div></div>
+      <div class="row"><div class="k"><i></i></div><div><b>Email</b><span>comercial@ksimport.com.br</span></div></div>
+      <div class="row"><div class="k"><i></i></div><div><b>Operations</b><span>Import and distribution throughout Brazil</span></div></div>
+      <div class="row"><div class="k"><i></i></div><div><b>Standards</b><span>KS · ANSI · DIN · JIS · ISO</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ft">
+  <div class="c">
+    <div class="fgrid">
+      <div>
+        <div class="logo-chip" style="margin-bottom:14px"><img class="logo-img" src="/logo-ks.png" alt="KS Import"></div>
+        <p style="font-size:14px;max-width:34ch">Tooling for fastener manufacturers. Punches, pins, dies, thread rolling dies and taps — from the right manufacturer to your machine.</p>
+      </div>
+      <div><h5>Tooling</h5><a href="#produtos">Punches</a><a href="#produtos">Thread rolling dies</a><a href="#produtos">Dies and trimming</a><a href="/en/cabecas-de-parafuso">Screw Heads</a><a href="/en/chaves-de-fenda">Screwdrivers</a></div>
+      <div><h5>Commercial</h5><a href="/jornal">KS Journal (PT)</a><a href="#contato">Request a quote</a><a href="#contato">WhatsApp</a><a href="#contato">Become a customer</a></div>
+    </div>
+    <div class="fbar"><span>© 2026 KS Import · Import and distribution of tooling</span><span>LGPD · Privacy · ksimport.com.br</span></div>
+  </div>
+</footer>
+
+<!-- ============ ATENDIMENTO KS - chat hibrido (IA + especialista + WhatsApp) ============
+     Widget servido em /ks-chat.js -> Edge Function ks-chat-site (Supabase).
+     Substitui o antigo "Assistente KS" (so IA, sem atendente humano e sem entrada no funil). -->
+<script src="/ks-chat-en.js" defer></script>
+<script>
+  /* Fotos do catálogo — puxa a capa de cada produto do Supabase (upload feito no CRM) */
+  (async function(){
+    const tiles=[...document.querySelectorAll('.pcard .tile[data-produto]')];
+    if(!tiles.length) return;
+    const SBURL="https://vbolwaskiquchzbbuzol.supabase.co", SBKEY="sb_publishable_L1sdAGREymDnp5-jJHy2kg_fTCSC_rn";
+    try{
+      const r=await fetch(SBURL+"/rest/v1/produto_fotos?select=produto_id,url,principal,ordem&order=ordem.asc",{headers:{apikey:SBKEY,Authorization:"Bearer "+SBKEY}});
+      if(!r.ok) return;
+      const rows=await r.json(), byProd={};
+      rows.forEach(f=>{ (byProd[f.produto_id]=byProd[f.produto_id]||[]).push(f); });
+      tiles.forEach(t=>{
+        const list=byProd[t.getAttribute('data-produto')]; if(!list||!list.length) return;
+        const cap=list.find(f=>f.principal)||list[0];
+        const img=new Image(); img.className="pfoto"; img.alt=""; img.loading="lazy";
+        img.onload=()=>{ const hx=t.querySelector('.hx'); if(hx) hx.style.display='none'; };
+        img.src=cap.url; t.appendChild(img);
+      });
+    }catch(e){}
+  })();
+
+  const KSAI_KEY="sb_publishable_L1sdAGREymDnp5-jJHy2kg_fTCSC_rn";
+  const LEAD_URL="https://vbolwaskiquchzbbuzol.supabase.co/functions/v1/ks-site-lead";
+  async function ksLeadSubmit(e){
+    e.preventDefault();
+    const msg=document.getElementById("lkMsg"); const btn=e.target.querySelector("button");
+    const payload={ empresa:document.getElementById("lkEmpresa").value.trim(), linha:document.getElementById("lkLinha").value, itens:document.getElementById("lkItens").value.trim(), telefone:document.getElementById("lkFone").value.trim(), empresa_site:document.getElementById("lkHp").value };
+    if(!payload.empresa && !payload.telefone){ msg.style.color="#c0392b"; msg.textContent="Enter at least the company and a WhatsApp number for reply."; return false; }
+    btn.disabled=true; btn.textContent="Enviando…"; msg.textContent="";
+    try{
+      const r=await fetch(LEAD_URL,{method:"POST",headers:{"Content-Type":"application/json","apikey":KSAI_KEY},body:JSON.stringify(payload)});
+      const j=await r.json();
+      if(j.ok){ btn.textContent="Sent ✓"; msg.style.color="#1E9E62"; msg.textContent="We received your request — the KS technical team will get back to you shortly with the quote."; e.target.reset(); }
+      else { btn.disabled=false; btn.textContent="Submit for quote"; msg.style.color="#c0392b"; msg.textContent=j.error||"Could not send. Please try again."; }
+    }catch(err){ btn.disabled=false; btn.textContent="Submit for quote"; msg.style.color="#c0392b"; msg.textContent="Connection failure. Please try again."; }
+    return false;
+  }
+</script>
+<script>
+  (function(){
+    const grid=document.getElementById('catgrid'); if(!grid) return;
+    const cards=[...grid.querySelectorAll('.pcard')];
+    const q=document.getElementById('catq');
+    const btns=[...document.querySelectorAll('.fbtn')];
+    const empty=document.getElementById('catempty');
+    let grupo='all';
+    function apply(){
+      const term=(q.value||'').trim().toLowerCase(); let vis=0;
+      cards.forEach(c=>{
+        const okG = grupo==='all' || c.dataset.grupo===grupo;
+        const okT = !term || c.dataset.nome.includes(term) || c.textContent.toLowerCase().includes(term);
+        const show = okG && okT; c.style.display = show ? '' : 'none'; if(show) vis++;
+      });
+      empty.style.display = vis ? 'none' : '';
+    }
+    btns.forEach(b=>b.addEventListener('click',()=>{btns.forEach(x=>x.classList.remove('active'));b.classList.add('active');grupo=b.dataset.f;apply();}));
+    q.addEventListener('input',apply);
+    const g=new URLSearchParams(location.search).get('g');
+    if(g){ const b=btns.find(x=>x.dataset.f===g); if(b){ b.click(); } }
+  })();
+</script>
+</body>
+</html>
