@@ -352,3 +352,43 @@
     irWhats("balao_esquerda");
   });
 })();
+
+/* ---- Contador de visitas (04/11/2026, aprovado pelo Edson) ---------------------
+   Uma visita por pagina por sessao -> Edge ks-site-visita (separada da ks-site-lead:
+   se falhar, lead e chat seguem intactos). Origem decidida AQUI, na 1a pagina da sessao,
+   e mantida nas seguintes: codigo KS-XXXXXX ou utm de e-mail = "email"; jornal = "jornal";
+   Google/Bing = "google"; sem referencia = "direto". Nada de dado pessoal: o visitante e um
+   id aleatorio do navegador. Robo e descartado no servidor pelo user-agent. */
+(function () {
+  try {
+    if (window.__ksVisita) return; window.__ksVisita = 1;
+    var URLV = "https://vbolwaskiquchzbbuzol.supabase.co/functions/v1/ks-site-visita";
+    var KEYV = "sb_publishable_L1sdAGREymDnp5-jJHy2kg_fTCSC_rn";
+    function ls(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+    function ss(k, v) { try { if (v === undefined) return sessionStorage.getItem(k); sessionStorage.setItem(k, v); } catch (e) { return null; } }
+    var vid = ls("ks_vid");
+    if (!vid) { vid = "v" + Date.now().toString(36) + Math.random().toString(36).slice(2, 10); ls("ks_vid", vid); }
+    var q = new URLSearchParams(location.search), codigo = null;
+    q.forEach(function (v) { if (!codigo && /^KS-[A-Z0-9]{5,10}$/i.test(v)) codigo = v.toUpperCase(); });
+    var src = (q.get("utm_source") || "").toLowerCase(), med = (q.get("utm_medium") || "").toLowerCase();
+    var refHost = ""; try { refHost = document.referrer ? new URL(document.referrer).hostname : ""; } catch (e) {}
+    var interno = refHost && refHost.replace(/^www\./, "") === location.hostname.replace(/^www\./, "");
+    var origem = ss("ks_vorig");
+    if (!origem) {
+      if (/jornal/.test(src + med) || /jornal/i.test(document.referrer)) origem = "jornal";
+      else if (codigo || /mail|brevo|newsletter/.test(src + med)) origem = "email";
+      else if (/google|bing|yahoo|duckduckgo/.test(refHost + src)) origem = "google";
+      else if (/facebook|instagram|linkedin|t\.co|whatsapp/.test(refHost + src)) origem = "social";
+      else if (!refHost || interno) origem = "direto";
+      else origem = "outro";
+      ss("ks_vorig", origem);
+      if (codigo) ss("ks_vcod", codigo);
+      if (q.get("utm_campaign")) ss("ks_vcamp", q.get("utm_campaign"));
+    }
+    var pagina = location.pathname || "/";
+    if (ss("ks_vp_" + pagina)) return; ss("ks_vp_" + pagina, "1");
+    var corpo = JSON.stringify({ pagina: pagina, ref: interno ? null : (refHost || null), origem: origem,
+      campanha: ss("ks_vcamp"), codigo: codigo || ss("ks_vcod"), visitante: vid });
+    fetch(URLV, { method: "POST", keepalive: true, headers: { "Content-Type": "application/json", apikey: KEYV }, body: corpo }).catch(function () {});
+  } catch (e) { /* contador nunca derruba a pagina */ }
+})();
